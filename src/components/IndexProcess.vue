@@ -1,6 +1,6 @@
 <template>
   <div class="main_common_box">
-      科研进程
+      科研进程你好
   </div>
 </template>
 
