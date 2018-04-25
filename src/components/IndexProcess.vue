@@ -1,6 +1,6 @@
 <template>
   <div class="main_common_box">
-      科研进程你好
+      科研进程你好你在案例
   </div>
 </template>
 
