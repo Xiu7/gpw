@@ -6,7 +6,7 @@
         <BreadcrumbItem>科研进程</BreadcrumbItem>
       </Breadcrumb>
       <Content :style="{padding: '24px', minHeight: '280px', background: '#fff'}">
-        <Carousel autoplay v-model="value2" autoplay-speed="5000"  height="400px" loop>
+        <Carousel autoplay v-model="value2" :autoplay-speed="5000"  :height="400" loop>
           <CarouselItem>
             <div class="demo-carousel">
               <img src="../assets/img/55.jpg" alt="">
