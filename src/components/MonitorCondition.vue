@@ -3,19 +3,20 @@
     <Row style="line-height: 32px;">
       <Col span="24">
         <p class="fl">请选择站点:</p>
-        <Select v-model="siteSelect" style="width:200px" class="fl">
+        <Select v-model="siteSelect" style="width:200px;margin-left:5px;" class="fl">
           <Option v-for="item in siteList" :value="item.value"
                   :key="item.value">{{ item.label }}
           </Option>
         </Select>
         <p class="fl" style="margin-left: 8px">请选择监测项目:</p>
-        <Select v-model="projectSelect" style="width:200px" class="fl">
+        <Select v-model="projectSelect" style="width:200px;margin-left:5px;" class="fl">
           <Option v-for="item in projectList" :value="item.value"
                   :key="item.value">{{ item.label }}
           </Option>
         </Select>
         <p class="fl" style="margin-left: 8px">请选择日期:</p>
-        <DatePicker type="daterange" split-panels placeholder="请选择日期" style="width: 200px"></DatePicker>
+        <DatePicker type="daterange" split-panels placeholder="请选择日期" style="width: 200px;margin-left:5px;"></DatePicker>
+      <Button type="primary" style="margin-left:15px;"> 查询</Button>
       </Col>
     </Row>
     <Table ref="table" style="margin-top:20px;" height="800" :columns="columnsData" :data="tableData"></Table>
