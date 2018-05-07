@@ -19,14 +19,18 @@
               <Menu  active-name="1-2" :open-names="['1']" style="width:260px;"
               @on-select="handleMenuChange"
                      @on-open-change="handleSubMenuChange">
-                <Submenu name="1">
-                    <template slot="title">
-                        <Icon type="ios-paper"></Icon>
-                        首页
-                    </template>
-                    <MenuItem name="1-1">项目简介</MenuItem>
-                    <MenuItem name="1-2">科研进程</MenuItem>
-                </Submenu>
+                <!--<Submenu name="1">-->
+                    <!--<template slot="title">-->
+                        <!--<Icon type="ios-paper"></Icon>-->
+                        <!--首页-->
+                    <!--</template>-->
+                    <!--<MenuItem name="1-1">项目简介</MenuItem>-->
+                    <!--<MenuItem name="1-2">科研进程</MenuItem>-->
+                <!--</Submenu>-->
+                <MenuItem name="1">
+                  <Icon type="ios-paper"></Icon>
+                  首页
+                </MenuItem>
                 <Submenu name="2">
                     <template slot="title">
                         <Icon type="ios-people"></Icon>
@@ -42,7 +46,7 @@
                     </template>
                         <MenuItem name="3-1">历史数据</MenuItem>
                         <MenuItem name="3-2">单站分析</MenuItem>
-                        <MenuItem name="3-3">历史预警</MenuItem>
+                        <!--<MenuItem name="3-3">历史预警</MenuItem>-->
                 </Submenu>
                 <Submenu name="4">
                     <template slot="title">
@@ -50,24 +54,24 @@
                         官方气象
                     </template>
                 </Submenu>
-                <Submenu name="5">
-                    <template slot="title">
-                        <Icon type="stats-bars"></Icon>
-                        数据录入
-                    </template>
-                </Submenu>
-                <Submenu name="6">
-                    <template slot="title">
-                        <Icon type="stats-bars"></Icon>
-                        预警报警
-                    </template>
-                </Submenu>
-                <Submenu name="7">
-                    <template slot="title">
-                        <Icon type="stats-bars"></Icon>
-                        智能降尘
-                    </template>
-                </Submenu>
+                <!--<Submenu name="5">-->
+                    <!--<template slot="title">-->
+                        <!--<Icon type="stats-bars"></Icon>-->
+                        <!--数据录入-->
+                    <!--</template>-->
+                <!--</Submenu>-->
+                <!--<Submenu name="6">-->
+                    <!--<template slot="title">-->
+                        <!--<Icon type="stats-bars"></Icon>-->
+                        <!--预警报警-->
+                    <!--</template>-->
+                <!--</Submenu>-->
+                <!--<Submenu name="7">-->
+                    <!--<template slot="title">-->
+                        <!--<Icon type="stats-bars"></Icon>-->
+                        <!--智能降尘-->
+                    <!--</template>-->
+                <!--</Submenu>-->
             </Menu>
             </Sider>
             <Content>
@@ -91,11 +95,8 @@ export default {
     handleMenuChange:function(name){
         console.log(name.toString())
       switch (name.toString()) {
-          case '1-1':
+          case '1':
               this.$router.push("/index-project");
-              break;
-          case '1-2':
-              this.$router.push("/index-process");
               break;
           case '2-1':
             this.$router.push("/monitor-map");

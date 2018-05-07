@@ -2,8 +2,8 @@
   <div class="main_common_box">
     <Layout :style="{padding: '0 24px 24px'}">
       <Breadcrumb :style="{margin: '12px 0'}">
-        <BreadcrumbItem>科研简介</BreadcrumbItem>
-        <BreadcrumbItem>科研进程</BreadcrumbItem>
+        <BreadcrumbItem>科研简介与科研进程</BreadcrumbItem>
+        <!--<BreadcrumbItem>科研进程</BreadcrumbItem>-->
       </Breadcrumb>
       <Content :style="{padding: '24px', minHeight: '280px', background: '#fff'}">
         <Carousel autoplay v-model="value2" :autoplay-speed="5000"  :height="400" loop>
