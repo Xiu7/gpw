@@ -1,11 +1,14 @@
 <template>
-  <div class="smart-area-home">
+  <div class="smart-area-home" >
     <div id="map" :style="{height: mapHeight + 'px'}"></div>
+    <show-model v-if="isVisible" :width="newInfoX" :height="newInfoY" :index="index"
+    @handleCloseModal="handleCloseModal"></show-model>
   </div>
 </template>
 
 <script>
   import { TMap } from '../common/TMap.js'
+  import ShowModel from '../components/ShowModel'
   export default {
     name: 'HomePage',
     data () {
@@ -18,8 +21,15 @@
         currentCity: null,
         areaInfo: {},
         tradingArea: [],
-        qqObject: null
+        qqObject: null,
+        isVisible: false,
+        newInfoX:null,
+        newInfoY:null,
+        index:null
       }
+    },
+    components:{
+      ShowModel
     },
     computed: {
     },
@@ -58,20 +68,38 @@
           position: position3,
           map: this.map
         })
-        qq.maps.event.addListener(marker1, 'click', function() {
-            console.log("000")
+        var pixel=null
+        qq.maps.event.addListener(marker1, 'click', ()=>{
+          this.isVisible=true
+          pixel = marker1.getProjection().fromLatLngToContainerPixel(position1)
+          this.newInfoX = pixel.getX()
+          this.newInfoY = pixel.getY()
+          this.index=1
+          })
+        qq.maps.event.addListener(marker2, 'click', ()=>{
+          this.isVisible=true
+          pixel = marker2.getProjection().fromLatLngToContainerPixel(position2)
+          this.newInfoX = pixel.getX()
+          this.newInfoY = pixel.getY()
+          this.index=2
         })
-        qq.maps.event.addListener(marker2, 'click', function() {
-          console.log("000")
-        })
-        qq.maps.event.addListener(marker3, 'click', function() {
-          console.log("000")
+        qq.maps.event.addListener(marker3, 'click', ()=>{
+          this.isVisible=true
+          pixel = marker3.getProjection().fromLatLngToContainerPixel(position3)
+          this.newInfoX = pixel.getX()
+          this.newInfoY = pixel.getY()
+          this.index=3
+          console.log(this.newInfoY)
         })
         this.mapPanTo(position1)
       },
       mapPanTo: function (position) {
         let map = this.map
         map.panTo(position)
+      },
+      handleCloseModal(){
+          console.log("false")
+        this.isVisible=false
       }
     }
   }
