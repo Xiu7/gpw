@@ -1,11 +1,27 @@
 <template>
   <!--<div class="show-model-content" :style="{top:height+'px', left: width+'px'}">-->
-  <div class="show-model-content">
+  <div class="show-model-content" :style="{top:height+'px', left: width+'px'}">
     <div class="show-model-title" >
-      <label>第{{index}}监测点</label>
+      <label>第{{index}}监测点(id：{{monitorDataOne[0].Xid}})</label>
       <label type="close" class="close-btn" @click="closeModel">关闭</label>
     </div>
-
+    <div>
+      <ul>
+        <li>气压：{{monitorDataOne[0].Xairpre}}kpa</li>
+        <li>温度：{{monitorDataOne[0].Xairtemp}}℃</li>
+        <li>CO2：{{monitorDataOne[0].Xco2}}ppm</li>
+        <li>总辐射：{{monitorDataOne[0].Xradiation}}</li>
+        <li>湿度：{{monitorDataOne[0].Xrelahumi}}%</li>
+        <li>CO：{{monitorDataOne[0].co}}ppm</li>
+        <li>SO2：{{monitorDataOne[0].so2}}ppm</li>
+        <li>pm10：{{monitorDataOne[0].pm10}}ug/m3</li>
+        <li>pm2.5：{{monitorDataOne[0].pm25}}ug/m3</li>
+        <li>pm100：{{monitorDataOne[0].pm100}}ug/m3</li>
+        <li>风速：{{monitorDataOne[0].ws}}m/s</li>
+        <li>风向：{{monitorDataOne[0].wd}}度</li>
+        <li style="width:260px;">最新更新时间：{{monitorDataOne[0].Xdate}}</li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -16,7 +32,8 @@
       visible: Boolean,
       width: Number,
       height: Number,
-      index: Number
+      index: Number,
+      monitorDataOne: Array
     },
     data () {
       return {
@@ -35,7 +52,7 @@
       },
       closeModel(){
           console.log("emit")
-        this.$emit('handleCloseModal')
+        this.$emit('handleCloseModal',this.index)
       }
     }
   }
@@ -48,8 +65,6 @@
     min-height:180px;
     position: absolute;
     z-index:8;
-    top:120px;
-    left:300px;
     border:1px solid #eee;
     border-radius: 5px;
     background: #fff;
@@ -75,5 +90,10 @@
   }
   .close-btn:hover{
     color:#2d8cf0;
+  }
+  .show-model-content ul li {
+    float:left;
+    width:120px;
+    list-style: none;
   }
 </style>

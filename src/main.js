@@ -7,9 +7,11 @@ import iView from 'iview'
 import store from './store/store'
 import 'iview/dist/styles/iview.css'
 import echarts from 'echarts'
+import http from './common/http.js'
 
 Vue.config.productionTip = false
 Vue.prototype.$echarts=echarts
+Vue.prototype.$http = http
 Vue.use(iView)
 
 /* eslint-disable no-new */

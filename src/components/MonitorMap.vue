@@ -1,8 +1,12 @@
 <template>
   <div class="smart-area-home" >
     <div id="map" :style="{height: mapHeight + 'px'}"></div>
-    <show-model v-if="isVisible" :width="newInfoX" :height="newInfoY" :index="index"
-    @handleCloseModal="handleCloseModal"></show-model>
+    <show-model v-if="isVisibleOne" :width="320" :height="130" :index="1"
+    @handleCloseModal="handleCloseModal" :monitorDataOne="monitorDataOne"></show-model>
+    <show-model v-if="isVisibleTwo" :width="620" :height="130" :index="2"
+                @handleCloseModal="handleCloseModal" :monitorDataOne="monitorDataOne"></show-model>
+    <show-model v-if="isVisibleThree" :width="920" :height="130" :index="3"
+                @handleCloseModal="handleCloseModal" :monitorDataOne="monitorDataOne"></show-model>
   </div>
 </template>
 
@@ -22,10 +26,30 @@
         areaInfo: {},
         tradingArea: [],
         qqObject: null,
-        isVisible: false,
+        isVisibleOne: false,
+        isVisibleTwo: false,
+        isVisibleThree: false,
         newInfoX:null,
         newInfoY:null,
-        index:null
+        index:null,
+        monitorDataOne:[{
+          Xairpre:'',
+          Xairtemp:'',
+          Xco2:'',
+          Xdate:'',
+          Xid:'',
+          Xradiation:'',
+          Xrelahumi:'',
+          co:'',
+          pm10:'',
+          pm25:'',
+          pm100:'',
+          so2:'',
+          wd:'',
+          ws:''
+        }
+
+        ]
       }
     },
     components:{
@@ -69,26 +93,29 @@
           map: this.map
         })
         var pixel=null
-        qq.maps.event.addListener(marker1, 'click', ()=>{
-          this.isVisible=true
+        qq.maps.event.addListener(marker1, 'click', ()=> {
+          this.isVisibleOne = true
           pixel = marker1.getProjection().fromLatLngToContainerPixel(position1)
           this.newInfoX = pixel.getX()
           this.newInfoY = pixel.getY()
-          this.index=1
-          })
+          this.index = 1
+          this.searchPonitData()
+        })
         qq.maps.event.addListener(marker2, 'click', ()=>{
-          this.isVisible=true
+          this.isVisibleTwo=true
           pixel = marker2.getProjection().fromLatLngToContainerPixel(position2)
           this.newInfoX = pixel.getX()
           this.newInfoY = pixel.getY()
           this.index=2
+          this.searchPonitData()
         })
         qq.maps.event.addListener(marker3, 'click', ()=>{
-          this.isVisible=true
+          this.isVisibleThree=true
           pixel = marker3.getProjection().fromLatLngToContainerPixel(position3)
           this.newInfoX = pixel.getX()
           this.newInfoY = pixel.getY()
           this.index=3
+          this.searchPonitData()
           console.log(this.newInfoY)
         })
         this.mapPanTo(position1)
@@ -97,9 +124,39 @@
         let map = this.map
         map.panTo(position)
       },
-      handleCloseModal(){
+      searchPonitData(){
+          let postData={"id":"20009"}
+          this.$http.post('/lastdata', postData).then(
+            (response) => {
+              console.log(response)
+              this.monitorDataOne[0].Xairpre=response[0].Xairpre
+              this.monitorDataOne[0].Xairtemp=response[0].Xairtemp
+              this.monitorDataOne[0].Xco2=response[0].Xco2
+              this.monitorDataOne[0].Xdate=response[0].Xdate
+              this.monitorDataOne[0].Xid=response[0].Xid
+              this.monitorDataOne[0].Xradiation=response[0].Xradiation
+              this.monitorDataOne[0].Xrelahumi=response[0].Xrelahumi
+              this.monitorDataOne[0].co=response[0].co
+              this.monitorDataOne[0].pm10=response[0].pm10
+              this.monitorDataOne[0].pm25=response[0].pm25
+              this.monitorDataOne[0].pm100=response[0].pm100
+              this.monitorDataOne[0].so2=response[0].so2
+              this.monitorDataOne[0].wd=response[0].wd
+              this.monitorDataOne[0].ws=response[0].ws
+            })
+      },
+      handleCloseModal(index){
           console.log("false")
-        this.isVisible=false
+        if(index=='1'){
+          this.isVisibleOne=false
+        }
+        if(index=='2'){
+          this.isVisibleTwo=false
+        }
+        if(index=='3'){
+          this.isVisibleThree=false
+        }
+
       }
     }
   }
