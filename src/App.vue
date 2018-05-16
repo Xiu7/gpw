@@ -4,12 +4,12 @@
         <Header>
           <div class="header_left">
             <div class="monitor_logo"></div>
-            <div class="project_title">西北干旱荒漠区煤炭基地生态安全保障技术平台</div>
+            <div class="project_title">西北干旱荒漠区煤炭基地生态安全监测平台</div>
           </div>
           <div class="header_right">
 
             <span class="welcome_you" style="width:50px;">欢迎您</span>
-            <p class="welcome_you">孙晓丹迎您您</p>
+            <p class="welcome_you">王景华迎您您</p>
             <Icon type="ios-gear-outline fl make_icon"></Icon>
             <p class="welcome_you log_out">[退出]</p>
           </div>
@@ -34,10 +34,11 @@
                 <Submenu name="2">
                     <template slot="title">
                         <Icon type="ios-people"></Icon>
-                        实时监控
+                        监测站
                     </template>
-                    <MenuItem name="2-1">监测地图</MenuItem>
-                    <MenuItem name="2-2">监测点信息</MenuItem>
+                    <MenuItem name="2-1">实时监测</MenuItem>
+                    <MenuItem name="2-2">历史查询</MenuItem>
+                    <MenuItem name="2-3">单站分析</MenuItem>
                 </Submenu>
                 <Submenu name="3">
                     <template slot="title">
@@ -104,7 +105,7 @@ export default {
           case '2-2':
             this.$router.push("/monitor-condition");
             break;
-          case '3-1':
+          case '2-3':
             this.$router.push("/history-show");
             break;
       }
@@ -136,7 +137,7 @@ html,body{
 }
 .header_left{
   float:left;
-  width:520px;
+  width:550px;
   height:64px;
   line-height: 64px;
   color:#fff;
@@ -149,10 +150,10 @@ html,body{
 }
 .project_title{
   float: left;
-  width:450px;
+  width:490px;
   height: 64px;
   margin-left: 10px;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 600;
 }
 .header_right{

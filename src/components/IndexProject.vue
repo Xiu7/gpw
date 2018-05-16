@@ -1,12 +1,11 @@
 <template>
   <div class="main_common_box">
     <Layout :style="{padding: '0 24px 24px'}">
-      <Breadcrumb :style="{margin: '12px 0'}">
+      <Breadcrumb :style="{margin: '12px -22px'}">
         <BreadcrumbItem>科研简介与科研进程</BreadcrumbItem>
-        <!--<BreadcrumbItem>科研进程</BreadcrumbItem>-->
       </Breadcrumb>
-      <Content :style="{padding: '24px', minHeight: '280px', background: '#fff'}">
-        <Carousel autoplay v-model="value2" :autoplay-speed="5000"  :height="400" loop>
+      <Content :style="{padding: '30px', minHeight: '280px', width:'100%' ,background: '#fff'}">
+        <Carousel autoplay v-model="value2" :autoplay-speed="8000"  :height="400" loop>
           <CarouselItem>
             <div class="demo-carousel">
               <img src="../assets/img/lunbo1.png" alt="">
@@ -74,7 +73,7 @@
     <div class="news-info">
       <div>
         <ul>
-          <li><img src="../assets/img/proce4.jpg"><div><p>事件1</p><span>2017年11月 项目组在北京林业大学召开课题实施方案论证会</span><a href="article_list.html">MORE</a></div></li>
+          <li><img src="../assets/img/proce4.png"><div><p>事件1</p><span>2017年11月 项目组在北京林业大学召开课题实施方案论证会</span><a href="article_list.html">MORE</a></div></li>
           <li><img src="../assets/img/proce5.jpg"><div><p>事件2</p><span>2017年12月 项目组赴内蒙古乌海市进行观测实验</span><a href="article_list.html">MORE</a></div></li>
           <li><img src="../assets/img/proce6.jpg"><div><p>事件3</p><span>2018年2月 项目组参与内蒙古乌海市马万良焦化厂绿化工程</span><a href="article_list.html">MORE</a></div></li>
           <li><img src="../assets/img/proce7.jpg"><div><p>事件4</p><span>2018年3月 项目组赴宁夏与宁煤集团研究示范工程</span><a href="article_list.html">MORE</a></div></li>
@@ -151,7 +150,7 @@
 
   }
 .index-main-body{
-  margin-top: 20px;
+  margin-top: 60px;
 
 }
   .index-main-body li {
@@ -168,9 +167,11 @@
     text-align: center;
     font-size:12px;
   }
-
+.demo-carousel img{
+  width: 100%;
+}
   .article-content {
-    max-width: 1100px;
+    max-width: 100%;
     margin: 0 auto;
     overflow: hidden;
     padding: 0;
@@ -231,11 +232,11 @@
   }
   .news-info {
     max-width: 100%;
-    height:550px;
+    height:500px;
     text-align: center;
     overflow: auto;
     /*margin-bottom: 10rem;*/
-    margin: 0px 32px;
+    margin: 0px 24px;
   }
   .news-info h2 {
     display: block;

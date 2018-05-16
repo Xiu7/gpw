@@ -60,7 +60,7 @@
 
 <style>
   .show-model-content{
-    padding:8px;
+    padding:10px;
     width:280px;
     min-height:180px;
     position: absolute;
@@ -69,14 +69,17 @@
     border-radius: 5px;
     background: #fff;
     box-shadow: 2px 0px 3px #ccc,-2px 0px 3px #ccc;
-    opacity: 0.6;
+    opacity: 0.8;
+    font-size: 14px;
+    margin: 0px 20px;
   }
   .show-model-title{
-    font-size:16px;
+    font-size:14px;
     color:#000;
     width:100%;
     height:26px;
-    color:#2d8cf0;
+    color:#0066FF;
+    font-weight:bold;
   }
   .close-btn{
     display: block;
@@ -85,7 +88,7 @@
     height:16px;
     float:right;
     cursor: pointer;
-    color:#000;
+    color:firebrick;
     margin-top:3px;
   }
   .close-btn:hover{
