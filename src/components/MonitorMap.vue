@@ -66,7 +66,7 @@
         this.map = new qq.maps.Map(document.getElementById('map'), {
           // 地图的中心地理坐标
           center: new qq.maps.LatLng(39.421856, 106.541840),
-          zoom: 14,
+          zoom: 15,
           panControl: false,
           zoomControl: false
         })
@@ -77,9 +77,9 @@
     methods: {
       addMarkers(){
         let qq = this.qqObject
-        let position1 = new qq.maps.LatLng(39.421856, 106.541840)
-        let position2 = new qq.maps.LatLng(39.422989, 106.535919)
-        let position3 = new qq.maps.LatLng(39.421143, 106.535959)
+        let position1 = new qq.maps.LatLng(39.708656,106.905513)
+        let position2 = new qq.maps.LatLng(39.706576, 106.910126)
+        let position3 = new qq.maps.LatLng(39.703835, 106.904247)
         let marker1 = new qq.maps.Marker({
           position: position1,
           map: this.map
@@ -129,7 +129,7 @@
           this.$http.post('/lastdata', postData).then(
             (response) => {
               console.log(response)
-              this.monitorDataOne[0].Xairpre=response[0].Xairpre
+              this.monitorDataOne[0].Xairpre=response[0].Xairpre/100
               this.monitorDataOne[0].Xairtemp=response[0].Xairtemp
               this.monitorDataOne[0].Xco2=response[0].Xco2
               this.monitorDataOne[0].Xdate=response[0].Xdate
