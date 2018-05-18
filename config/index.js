@@ -17,6 +17,13 @@ module.exports = {
         pathRewrite: {
           '^/lastdata': '/lastdata'
         }
+      },
+      '/compare': {
+        target: 'http://123.57.12.101:3000',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/compare': '/compare'
+        }
       }
     },
 

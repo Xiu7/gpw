@@ -15,8 +15,13 @@
           </Option>
         </Select>
         <p class="fl" style="margin-left: 8px">请选择日期:</p>
-        <DatePicker type="daterange" split-panels placeholder="请选择日期" style="width: 200px;margin-left:5px;"></DatePicker>
-      <Button type="primary" style="margin-left:15px;"> 查询</Button>
+        <!--<DatePicker type="daterange" split-panels placeholder="请选择日期" style="width: 200px;margin-left:5px;"-->
+        <!--v-model="dateValue"></DatePicker>-->
+      <DatePicker type="date" placeholder="Select date"
+                  @on-change="startDateValue=$event" style="width: 200px" v-model="startDateValue"></DatePicker>
+      <DatePicker type="date" v-model="endDateValue" placeholder="Select date"
+                  style="width: 200px" @on-change="endDateValue=$event"></DatePicker>
+      <Button type="primary" style="margin-left:15px;" @click="searchTableData"> 查询</Button>
       </Col>
     </Row>
     <Table ref="table" style="margin-top:20px;" height="800" :columns="columnsData" :data="tableData"></Table>
@@ -29,19 +34,29 @@
     name: 'MonitorCondition',
     data () {
       return {
-        siteSelect: '1',
-        projectSelect:'1',
+        siteSelect: '20009',
+        projectSelect:'Xairpre',
         siteList:[
-            {'label':'北京','value':'1'},
-            {'label':'天津','value':'2'}],
+            {'label':'监测点1','value':'20009'}],
         projectList:[
-            {'label':'气象信息','value':'1'},
-            {'label':'粉尘信息','value':'2'},
-            {'label':'气体信息','value':'3'}
+            {'label':'大气压力','value':'Xairpre'},
+            {'label':'温度','value':'Xairtemp'},
+            {'label':'二氧化碳','value':'Xco2'},
+            {'label':'一氧化碳','value':'co'},
+            {'label':'二氧化硫','value':'so2'},
+            {'label':'pm25','value':'pm25'},
+            {'label':'pm10','value':'pm10'},
+            {'label':'pm100','value':'pm100'},
+            {'label':'风速','value':'ws'},
+            {'label':'风向','value':'wd'},
+            {'label':'总辐射','value':'Xradiation'},
+            {'label':'湿度','value':'Xrelahumi'},
         ],
-        columnsData:[{'title':'日期'},{'title':'天气'},
-          {'title':'温度'}],
-        tableData:[]
+        columnsData:[{'title':'监测点ID',key:'Xid'},{'title':'检测项目值',key:'value'},
+          {'title':'时间',key:'Xdate'}],
+        tableData:[],
+        startDateValue: null,
+        endDateValue: null
       }
     },
     methods:{
@@ -49,6 +64,41 @@
         this.$refs.table.exportCsv({
           filename: '原始数据'
         });
+      },
+      searchTableData(){
+          let postData={
+              id:this.siteSelect,
+              start:this.startDateValue,
+              end:this.endDateValue,
+              sensor:this.projectSelect
+          }
+          console.log(postData)
+        this.$http.post('/compare', postData).then(
+          (response) => {
+              console.log(response.length)
+            this.tableData = []
+            var key=Object.getOwnPropertyNames(response[0])[2]
+            console.log(key)
+            for(let i=0;i<response.length;i++){
+               let data={Xid:null,Xdate:null,value:null}
+               data.Xid= response[i].Xid
+               data.Xdate= response[i].Xdate
+               data.value= response[i][key]
+
+              this.tableData.push(data)
+            }
+            console.log(this.tableData)
+          })
+      },
+      dateFormat(val) {
+        let year = val.getFullYear().toString();
+        let month = val.getMonth() >= 9
+          ? (val.getMonth() + 1).toString()
+          : "0" + (val.getMonth() + 1);
+        let date = val.getDate() >= 9
+          ? val.getDate().toString()
+          : "0" + val.getDate();
+        return year + "-" + month + "-" + date;
       }
     }
   }
