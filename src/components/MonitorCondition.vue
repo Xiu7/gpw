@@ -3,13 +3,13 @@
     <Row style="line-height: 32px;">
       <Col span="24">
         <p class="fl">请选择站点:</p>
-        <Select v-model="siteSelect" style="width:200px;margin-left:5px;" class="fl">
+        <Select v-model="siteSelect" style="width:150px;margin-left:5px;" class="fl">
           <Option v-for="item in siteList" :value="item.value"
                   :key="item.value">{{ item.label }}
           </Option>
         </Select>
         <p class="fl" style="margin-left: 8px">请选择监测项目:</p>
-        <Select v-model="projectSelect" style="width:200px;margin-left:5px;" class="fl">
+        <Select v-model="projectSelect" style="width:150px;margin-left:5px;" class="fl">
           <Option v-for="item in projectList" :value="item.value"
                   :key="item.value">{{ item.label }}
           </Option>
@@ -18,9 +18,9 @@
         <!--<DatePicker type="daterange" split-panels placeholder="请选择日期" style="width: 200px;margin-left:5px;"-->
         <!--v-model="dateValue"></DatePicker>-->
       <DatePicker type="date" placeholder="Select date"
-                  @on-change="startDateValue=$event" style="width: 200px" v-model="startDateValue"></DatePicker>
+                  @on-change="startDateValue=$event" style="width: 150px" v-model="startDateValue"></DatePicker>
       <DatePicker type="date" v-model="endDateValue" placeholder="Select date"
-                  style="width: 200px" @on-change="endDateValue=$event"></DatePicker>
+                  style="width: 150px" @on-change="endDateValue=$event"></DatePicker>
       <Button type="primary" style="margin-left:15px;" @click="searchTableData"> 查询</Button>
       </Col>
     </Row>
@@ -75,7 +75,7 @@
           console.log(postData)
         this.$http.post('/compare', postData).then(
           (response) => {
-              console.log(response.length)
+            console.log(response.length)
             this.tableData = []
             var key=Object.getOwnPropertyNames(response[0])[2]
             console.log(key)

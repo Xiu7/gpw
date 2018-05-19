@@ -8,6 +8,18 @@
                 :key="item.value">{{ item.label }}
         </Option>
       </Select>
+      <p class="fl" style="margin-left: 8px">请选择监测项目:</p>
+      <Select v-model="projectSelect" style="width:150px;margin-left:5px;" class="fl">
+        <Option v-for="item in projectList" :value="item.value"
+                :key="item.value">{{ item.label }}
+        </Option>
+      </Select>
+      <p class="fl" style="margin-left: 8px">请选择日期:</p>
+      <DatePicker type="date" placeholder="Select date"
+                  @on-change="startDateValue=$event" style="width: 150px" v-model="startDateValue"></DatePicker>
+      <DatePicker type="date" v-model="endDateValue" placeholder="Select date"
+                  style="width: 150px" @on-change="endDateValue=$event"></DatePicker>
+      <Button type="primary" style="margin-left:15px;" @click="searchTableData"> 查询</Button>
       </Col>
     </Row>
     <div id="showChart" style="width:85%;height:600px;"></div>
@@ -19,15 +31,33 @@
     name: 'MonitorCondition',
     data () {
       return {
-        siteSelect: '1',
-        projectSelect:'1',
+        siteSelect: '20009',
+        projectSelect:'Xairpre',
         siteList:[
-          {'label':'北京','value':'1'},
-          {'label':'天津','value':'2'}],
+          {'label':'监测点1','value':'20009'}],
+        projectList:[
+          {'label':'大气压力','value':'Xairpre'},
+          {'label':'温度','value':'Xairtemp'},
+          {'label':'二氧化碳','value':'Xco2'},
+          {'label':'一氧化碳','value':'co'},
+          {'label':'二氧化硫','value':'so2'},
+          {'label':'pm25','value':'pm25'},
+          {'label':'pm10','value':'pm10'},
+          {'label':'pm100','value':'pm100'},
+          {'label':'风速','value':'ws'},
+          {'label':'风向','value':'wd'},
+          {'label':'总辐射','value':'Xradiation'},
+          {'label':'湿度','value':'Xrelahumi'},
+        ],
+        columnsData:[{'title':'监测点ID',key:'Xid'},{'title':'检测项目值',key:'value'},
+          {'title':'时间',key:'Xdate'}],
+        tableData:[],
+        startDateValue: null,
+        endDateValue: null
       }
     },
     mounted(){
-        this.initData()
+//        this.initData()
     },
     methods:{
       initData(){
@@ -61,6 +91,78 @@
             }
           }]
         })
+      },
+      searchTableData(){
+        let postData={
+          id:this.siteSelect,
+          start:this.startDateValue,
+          end:this.endDateValue,
+          sensor:this.projectSelect
+        }
+        console.log(postData)
+        this.$http.post('/compare', postData).then(
+          (response) => {
+              console.log(response)
+            var dataX=[]
+            var dataY=[]
+            var key=Object.getOwnPropertyNames(response[0])[2]
+            for(let i=0;i*12<response.length;i++){
+              let data={Xid:null,Xdate:null,value:null}
+              data.Xid= response[i*12].Xid
+              data.Xdate= response[i*12].Xdate
+              data.value= response[i*12][key]
+              this.tableData.push(data)
+              dataX.push(data.Xdate)
+              dataY.push(data.value)
+            }
+            var myChart = this.$echarts.init(document.getElementById('showChart'))
+            myChart.setOption({
+              xAxis: {
+                type: 'category',
+                data: dataX
+              },
+              yAxis: {
+                type: 'value'
+              },
+              tooltip: {
+                trigger: 'axis',
+//                axisPointer: {
+//                  type: 'cross',
+//                  animation: false,
+//                  label: {
+//                    backgroundColor: '#ccc',
+//                    borderColor: '#aaa',
+//                    borderWidth: 1,
+//                    shadowBlur: 0,
+//                    shadowOffsetX: 0,
+//                    shadowOffsetY: 0,
+//                    textStyle: {
+//                      color: '#222'
+//                    }
+//                  }
+//                }
+              },
+              series: [{
+                data: dataY,
+                type: 'line',
+                symbol: 'triangle',
+                symbolSize: 20,
+                lineStyle: {
+                  normal: {
+                    color: '#f5222d',
+                    width: 4
+                  }
+                },
+                itemStyle: {
+                  normal: {
+                    borderWidth: 3,
+                    borderColor: '#ff85c0',
+                    color: '#40a9ff'
+                  }
+                }
+              }]
+            })
+          })
       }
     }
   }
