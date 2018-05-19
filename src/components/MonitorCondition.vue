@@ -39,18 +39,18 @@
         siteList:[
             {'label':'监测点1','value':'20009'}],
         projectList:[
-            {'label':'大气压力','value':'Xairpre'},
-            {'label':'温度','value':'Xairtemp'},
-            {'label':'二氧化碳','value':'Xco2'},
-            {'label':'一氧化碳','value':'co'},
-            {'label':'二氧化硫','value':'so2'},
-            {'label':'pm25','value':'pm25'},
-            {'label':'pm10','value':'pm10'},
-            {'label':'pm100','value':'pm100'},
-            {'label':'风速','value':'ws'},
-            {'label':'风向','value':'wd'},
+            {'label':'大气压力(kpa)','value':'Xairpre'},
+            {'label':'温度(℃)','value':'Xairtemp'},
+            {'label':'二氧化碳(ppm)','value':'Xco2'},
+            {'label':'一氧化碳(ppm)','value':'co'},
+            {'label':'二氧化硫(ppm)','value':'so2'},
+            {'label':'pm25(ug/m3)','value':'pm25'},
+            {'label':'pm10(ug/m3)','value':'pm10'},
+            {'label':'pm100(ug/m3)','value':'pm100'},
+            {'label':'风速(m/s)','value':'ws'},
+            {'label':'风向(度)','value':'wd'},
             {'label':'总辐射','value':'Xradiation'},
-            {'label':'湿度','value':'Xrelahumi'},
+            {'label':'湿度(%)','value':'Xrelahumi'}
         ],
         columnsData:[{'title':'监测点ID',key:'Xid'},{'title':'检测项目值',key:'value'},
           {'title':'时间',key:'Xdate'}],
@@ -89,16 +89,6 @@
             }
             console.log(this.tableData)
           })
-      },
-      dateFormat(val) {
-        let year = val.getFullYear().toString();
-        let month = val.getMonth() >= 9
-          ? (val.getMonth() + 1).toString()
-          : "0" + (val.getMonth() + 1);
-        let date = val.getDate() >= 9
-          ? val.getDate().toString()
-          : "0" + val.getDate();
-        return year + "-" + month + "-" + date;
       }
     }
   }

@@ -146,7 +146,6 @@
             })
       },
       handleCloseModal(index){
-          console.log("false")
         if(index=='1'){
           this.isVisibleOne=false
         }
