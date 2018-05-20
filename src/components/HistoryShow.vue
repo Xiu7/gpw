@@ -9,7 +9,8 @@
         </Option>
       </Select>
       <p class="fl" style="margin-left: 8px">请选择监测项目:</p>
-      <Select v-model="projectSelect" style="width:150px;margin-left:5px;" class="fl">
+      <Select v-model="projectSelect" style="width:150px;margin-left:5px;"
+              @on-change="handleProjectChange(projectSelect)" class="fl">
         <Option v-for="item in projectList" :value="item.value"
                 :key="item.value">{{ item.label }}
         </Option>
@@ -22,7 +23,7 @@
       <Button type="primary" style="margin-left:15px;" @click="searchTableData"> 查询</Button>
       </Col>
     </Row>
-    <div id="showChart" style="width:85%;height:600px;"></div>
+    <div id="showChart" style="width:85%;height:600px;margin-top:20px"></div>
   </div>
 </template>
 
@@ -33,6 +34,7 @@
       return {
         siteSelect: '20009',
         projectSelect:'Xairpre',
+        monitorProject:'大气压力(kpa)',
         siteList:[
           {'label':'监测点1','value':'20009'}],
         projectList:[
@@ -60,38 +62,6 @@
 //        this.initData()
     },
     methods:{
-      initData(){
-        var myChart = this.$echarts.init(document.getElementById('showChart'))
-        myChart.setOption({
-          xAxis: {
-            type: 'category',
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-          },
-          yAxis: {
-            type: 'value'
-          },
-          series: [{
-            data: [120, 200, 150, 80, 70, 110, 130],
-            type: 'line',
-            symbol: 'triangle',
-            symbolSize: 20,
-            lineStyle: {
-              normal: {
-                color: 'green',
-                width: 4,
-                type: 'dashed'
-              }
-            },
-            itemStyle: {
-              normal: {
-                borderWidth: 3,
-                borderColor: 'yellow',
-                color: 'blue'
-              }
-            }
-          }]
-        })
-      },
       searchTableData(){
         let postData={
           id:this.siteSelect,
@@ -117,6 +87,9 @@
             }
             var myChart = this.$echarts.init(document.getElementById('showChart'))
             myChart.setOption({
+              title: {
+                text: '检测项目：'+this.monitorProject,
+              },
               xAxis: {
                 type: 'category',
                 data: dataX
@@ -125,22 +98,7 @@
                 type: 'value'
               },
               tooltip: {
-                trigger: 'axis',
-//                axisPointer: {
-//                  type: 'cross',
-//                  animation: false,
-//                  label: {
-//                    backgroundColor: '#ccc',
-//                    borderColor: '#aaa',
-//                    borderWidth: 1,
-//                    shadowBlur: 0,
-//                    shadowOffsetX: 0,
-//                    shadowOffsetY: 0,
-//                    textStyle: {
-//                      color: '#222'
-//                    }
-//                  }
-//                }
+                trigger: 'axis'
               },
               series: [{
                 data: dataY,
@@ -163,6 +121,14 @@
               }]
             })
           })
+      },
+      handleProjectChange(val){
+          for(let i=0;i<this.projectList.length;i++){
+            if(val==this.projectList[i].value){
+                this.monitorProject=this.projectList[i].label
+            }
+          }
+
       }
     }
   }

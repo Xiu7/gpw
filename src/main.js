@@ -12,6 +12,7 @@ import http from './common/http.js'
 Vue.config.productionTip = false
 Vue.prototype.$echarts=echarts
 Vue.prototype.$http = http
+var $ = window.$ = window.jQuery =  require('jquery')
 Vue.use(iView)
 
 /* eslint-disable no-new */

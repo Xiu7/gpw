@@ -49,12 +49,10 @@
                         <MenuItem name="3-2">单站分析</MenuItem>
                         <!--<MenuItem name="3-3">历史预警</MenuItem>-->
                 </Submenu>
-                <Submenu name="4">
-                    <template slot="title">
+                <MenuItem name="4">
                         <Icon type="stats-bars"></Icon>
                         官方气象
-                    </template>
-                </Submenu>
+                </MenuItem>
                 <!--<Submenu name="5">-->
                     <!--<template slot="title">-->
                         <!--<Icon type="stats-bars"></Icon>-->
@@ -107,6 +105,9 @@ export default {
             break;
           case '2-3':
             this.$router.push("/history-show");
+            break;
+          case '4':
+            this.$router.push("weather-report");
             break;
       }
     },

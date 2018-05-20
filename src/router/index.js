@@ -5,7 +5,7 @@ import IndexProcess from '@/components/IndexProcess'
 import MonitorMap from '@/components/MonitorMap'
 import MonitorCondition from '@/components/MonitorCondition'
 import HistoryShow from '@/components/HistoryShow'
-
+import WeatherReport from '@/components/WeatherReport'
 Vue.use(Router)
 
 export default new Router({
@@ -39,6 +39,11 @@ export default new Router({
       path: '/history-show',
       name: 'HistoryShow',
       component: HistoryShow
+    },
+    {
+      path: '/weather-report',
+      name: 'WeatherReport',
+      component: WeatherReport
     }
   ]
 })
