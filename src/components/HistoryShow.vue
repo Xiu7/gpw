@@ -34,11 +34,11 @@
       return {
         siteSelect: '20009',
         projectSelect:'Xairpre',
-        monitorProject:'大气压力(kpa)',
+        monitorProject:'大气压力(/100 kpa)',
         siteList:[
           {'label':'监测点1','value':'20009'}],
         projectList:[
-          {'label':'大气压力(kpa)','value':'Xairpre'},
+          {'label':'大气压力(/100 kpa)','value':'Xairpre'},
           {'label':'温度(℃)','value':'Xairtemp'},
           {'label':'二氧化碳(ppm)','value':'Xco2'},
           {'label':'一氧化碳(ppm)','value':'co'},

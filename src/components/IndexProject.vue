@@ -2,7 +2,7 @@
   <div class="main_common_box">
     <Layout :style="{padding: '0 24px 24px'}">
       <Breadcrumb :style="{margin: '12px -22px'}">
-        <BreadcrumbItem>科研简介与科研进程</BreadcrumbItem>
+        <BreadcrumbItem>科研简介</BreadcrumbItem>
       </Breadcrumb>
       <Content :style="{padding: '30px', minHeight: '280px', width:'100%' ,background: '#fff'}">
         <Carousel autoplay v-model="value2" :autoplay-speed="8000"  :height="400" loop>
@@ -34,54 +34,6 @@
 
       <p>西北干旱荒漠区位于国家生态安全格局“两屏三带”的北方防沙带，是国家“一 带一路”的重点建设区域，该区干旱风大、植被退化、土地沙化严重，生态系统极其脆弱。国家规划的14个大型煤炭基地中的神东和宁东煤炭基地位于该区域，占地4.2万平方公里，煤炭产能超过2.7亿吨。随着区域内煤炭开采规模和强度不断增大，生态安全问题日益严重。煤炭开采导致生态系统结构变异、生态过程 阻断、生态功能退化、生态稳定性减弱，对区域协调发展产生不利影响。</p>
       <p>目前干旱荒漠区煤炭开发对区域生态影响规律研究尚不系统，矿区生态恢复技术研发相对滞后，已有的生态恢复技术和模式难以支撑煤炭基地的生态修复与综合整治。 因此，研究西北干旱荒漠区煤炭开发对区域生态影响规律，构建矿区受损生态系统恢复与重建技术体系，在典型区域进行规模化研究示范，为西北干旱荒漠区煤炭基地生态安全保障提供科技支撑，对于实现矿区生态恢复、改善生态环境质量、 保障“两屏三带”区域生态安全具有重大意义。</p>
-    </div>
-    <div>
-      <section class="article-content">
-        <div class="article-protect-tab">
-          <span>项目进展</span>
-        </div>
-        <div class="article-protect-body">
-          <img src="../assets/img/proce1.jpg">
-          <ul>
-            <li>
-              <a href="article_list_content.html">
-                <h3>科研进程1</h3><span>2017-07</span>
-              </a>
-              <p>项目组赴内蒙古乌海及宁夏灵武考察</p>
-            </li>
-            <li>
-              <a href="article_list_content.html">
-                <h3>科研进程2</h3>
-                <span>2017-09</span>
-              </a>
-              <p>在北京林业大学召开项目启动会</p>
-            </li>
-            <li>
-              <a href="article_list_content.html">
-                <h3>科研进程3</h3>
-                <span>2017-10</span>
-              </a>
-              <p>项目组在第二届国际土地复垦会议中召开西部矿区生态修复专项会议</p>
-            </li>
-          </ul>
-        </div>
-      </section>
-    </div>
-    <div class="article-protect-tab">
-      <span>科研进程</span>
-    </div>
-    <div class="news-info">
-      <div>
-        <ul>
-          <li><img src="../assets/img/proce4.png"><div><p>事件1</p><span>2017年11月 项目组在北京林业大学召开课题实施方案论证会</span><a href="article_list.html">MORE</a></div></li>
-          <li><img src="../assets/img/proce5.jpg"><div><p>事件2</p><span>2017年12月 项目组赴内蒙古乌海市进行观测实验</span><a href="article_list.html">MORE</a></div></li>
-          <li><img src="../assets/img/proce6.jpg"><div><p>事件3</p><span>2018年2月 项目组参与内蒙古乌海市马万良焦化厂绿化工程</span><a href="article_list.html">MORE</a></div></li>
-          <li><img src="../assets/img/proce7.jpg"><div><p>事件4</p><span>2018年3月 项目组赴宁夏与宁煤集团研究示范工程</span><a href="article_list.html">MORE</a></div></li>
-          <!--<li><img src="../assets/img/proce2.jpg"><div><p>监测点2</p><span>国污费还会列入未来环境税征收范围</span><a href="article_list.html">MORE</a></div></li>-->
-          <!--<li><img src="../assets/img/proce2.jpg"><div><p>监测点3</p><span>相会列入未来环境税征收范围</span><a href="article_list.html">MORE</a></div></li>-->
-
-        </ul>
-      </div>
     </div>
     <div class="index-main-body">
       <span>风景环境</span>
@@ -170,16 +122,6 @@
 .demo-carousel img{
   width: 100%;
 }
-  .article-content {
-    max-width: 100%;
-    margin: 0 auto;
-    overflow: hidden;
-    padding: 0;
-  }
-  .article-protect-tab {
-    text-align: center;
-    padding: 3rem 0;
-  }
   .article-protect-tab span {
     border: 1px solid #aaa;
     width: 120px;

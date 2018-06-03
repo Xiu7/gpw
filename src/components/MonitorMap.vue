@@ -84,32 +84,32 @@
           position: position1,
           map: this.map
         })
-        var infoWinOne = new qq.maps.InfoWindow({
-          map: this.map
-        });
-        infoWinOne.open()
-        infoWinOne.setContent('第一监测点')
-        infoWinOne.setPosition(position1)
+        // var infoWinOne = new qq.maps.InfoWindow({
+        //   map: this.map
+        // });
+        // infoWinOne.open()
+        // infoWinOne.setContent('第一监测点')
+        // infoWinOne.setPosition(position1)
         let marker2 = new qq.maps.Marker({
           position: position2,
           map: this.map
         })
-        var infoWinTwo = new qq.maps.InfoWindow({
-          map: this.map
-        })
-        infoWinTwo.open()
-        infoWinTwo.setContent('第二监测点')
-        infoWinTwo.setPosition(position2)
+        // var infoWinTwo = new qq.maps.InfoWindow({
+        //   map: this.map
+        // })
+        // infoWinTwo.open()
+        // infoWinTwo.setContent('第二监测点')
+        // infoWinTwo.setPosition(position2)
         let marker3 = new qq.maps.Marker({
           position: position3,
           map: this.map
         })
-        var infoWinThree = new qq.maps.InfoWindow({
-          map: this.map
-        })
-        infoWinThree.open()
-        infoWinThree.setContent('第三监测点')
-        infoWinThree.setPosition(position3)
+        // var infoWinThree = new qq.maps.InfoWindow({
+        //   map: this.map
+        // })
+        // infoWinThree.open()
+        // infoWinThree.setContent('第三监测点')
+        // infoWinThree.setPosition(position3)
         var pixel=null
         qq.maps.event.addListener(marker1, 'click', ()=> {
           this.isVisibleOne = true

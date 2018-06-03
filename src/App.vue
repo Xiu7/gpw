@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Layout>
+    <Layout v-if="!isLogin">
         <Header>
           <div class="header_left">
             <div class="monitor_logo"></div>
@@ -11,7 +11,7 @@
             <span class="welcome_you" style="width:50px;">欢迎您</span>
             <p class="welcome_you">王景华迎您您</p>
             <Icon type="ios-gear-outline fl make_icon"></Icon>
-            <p class="welcome_you log_out">[退出]</p>
+            <p class="welcome_you log_out" @click="exit()">[退出]</p>
           </div>
         </Header>
         <Layout>
@@ -19,52 +19,48 @@
               <Menu  active-name="1-2" :open-names="['1']" style="width:260px;"
               @on-select="handleMenuChange"
                      @on-open-change="handleSubMenuChange">
-                <!--<Submenu name="1">-->
-                    <!--<template slot="title">-->
-                        <!--<Icon type="ios-paper"></Icon>-->
-                        <!--首页-->
-                    <!--</template>-->
-                    <!--<MenuItem name="1-1">项目简介</MenuItem>-->
-                    <!--<MenuItem name="1-2">科研进程</MenuItem>-->
-                <!--</Submenu>-->
                 <MenuItem name="1">
                   <Icon type="ios-paper"></Icon>
                   首页
                 </MenuItem>
-                <Submenu name="2">
+                <MenuItem name="2">
+                  <Icon type="ios-paper"></Icon>
+                  科研进程
+                </MenuItem>
+                <Submenu name="3">
                     <template slot="title">
                         <Icon type="ios-people"></Icon>
                         监测站
                     </template>
-                    <MenuItem name="2-1">实时监测</MenuItem>
-                    <MenuItem name="2-2">历史查询</MenuItem>
-                    <MenuItem name="2-3">单站分析</MenuItem>
+                    <MenuItem name="3-1">实时监测</MenuItem>
+                    <MenuItem name="3-2">历史查询</MenuItem>
+                    <MenuItem name="3-3">单站分析</MenuItem>
                 </Submenu>
-                <Submenu name="3">
+                <Submenu name="4">
                     <template slot="title">
                         <Icon type="stats-bars"></Icon>
                         查询分析
                     </template>
-                        <MenuItem name="3-1">历史数据</MenuItem>
-                        <MenuItem name="3-2">单站分析</MenuItem>
+                        <MenuItem name="4-1">历史数据</MenuItem>
+                        <MenuItem name="4-2">单站分析</MenuItem>
                         <!--<MenuItem name="3-3">历史预警</MenuItem>-->
                 </Submenu>
-                <MenuItem name="4">
+                <MenuItem name="5">
                         <Icon type="stats-bars"></Icon>
                         官方气象
                 </MenuItem>
-                <!--<Submenu name="5">-->
-                    <!--<template slot="title">-->
-                        <!--<Icon type="stats-bars"></Icon>-->
-                        <!--数据录入-->
-                    <!--</template>-->
-                <!--</Submenu>-->
-                <!--<Submenu name="6">-->
-                    <!--<template slot="title">-->
-                        <!--<Icon type="stats-bars"></Icon>-->
-                        <!--预警报警-->
-                    <!--</template>-->
-                <!--</Submenu>-->
+                <Submenu name="6">
+                    <template slot="title">
+                        <Icon type="stats-bars"></Icon>
+                        数据录入
+                    </template>
+                </Submenu>
+                <Submenu name="7">
+                    <template slot="title">
+                        <Icon type="stats-bars"></Icon>
+                        预警报警
+                    </template>
+                </Submenu>
                 <!--<Submenu name="7">-->
                     <!--<template slot="title">-->
                         <!--<Icon type="stats-bars"></Icon>-->
@@ -79,16 +75,27 @@
         </Layout>
         <Footer>Footer</Footer>
     </Layout>
+
+    <div v-if="isLogin">
+      <Login @GoHome="goHome"></Login>
+    </div>
   </div>
 </template>
 
 <script>
+  import Login from './components/Login'
 export default {
   name: 'App',
   data(){
     return{
-
+      isLogin:true
     }
+  },
+  created(){
+   //this.TransPage();
+  },
+  components:{
+    Login,
   },
   methods:{
     handleMenuChange:function(name){
@@ -97,24 +104,37 @@ export default {
           case '1':
               this.$router.push("/index-project");
               break;
-          case '2-1':
+        case '2':
+          this.$router.push("/index-process");
+          break;
+          case '3-1':
             this.$router.push("/monitor-map");
             break;
-          case '2-2':
+          case '3-2':
             this.$router.push("/monitor-condition");
             break;
-          case '2-3':
+          case '3-3':
             this.$router.push("/history-show");
             break;
           case '4':
             this.$router.push("weather-report");
             break;
+        case '5':
+          this.$router.push("login");
+          break;
       }
     },
     handleSubMenuChange(name,val){
         console.log(name)
       console.log(val)
+    },
+    exit:function () {
+      this.$router.push('/login');
+    },
+    goHome(msg){
+      this.isLogin=msg
     }
+
   }
 }
 </script>
@@ -128,13 +148,14 @@ html,body{
     color:#333;
     font-size: 14px;
 }
-.fl{
-  float: left
-}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.fl{
+  float: left
 }
 .header_left{
   float:left;

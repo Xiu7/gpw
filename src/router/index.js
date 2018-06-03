@@ -5,6 +5,8 @@ import IndexProcess from '@/components/IndexProcess'
 import MonitorMap from '@/components/MonitorMap'
 import MonitorCondition from '@/components/MonitorCondition'
 import HistoryShow from '@/components/HistoryShow'
+import Login from '@/components/Login'
+import NewsShow from '@/components/NewsShow'
 import WeatherReport from '@/components/WeatherReport'
 Vue.use(Router)
 
@@ -14,6 +16,12 @@ export default new Router({
       path: '/',
       name: 'IndexProject',
       component: IndexProject
+    },
+    {
+
+      path: '/login',
+      name: 'Login',
+      component: Login
     },
     {
       path: '/index-project',
@@ -44,6 +52,11 @@ export default new Router({
       path: '/weather-report',
       name: 'WeatherReport',
       component: WeatherReport
+    },
+    {
+      path: '/newsShow',
+      name: 'NewsShow',
+      component: NewsShow
     }
   ]
 })

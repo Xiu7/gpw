@@ -1,82 +1,96 @@
 <template>
   <div class="main_common_box">
     <Layout :style="{padding: '0 24px 24px'}">
-      <Breadcrumb :style="{margin: '12px 0'}">
-        <BreadcrumbItem>科研简介</BreadcrumbItem>
-        <BreadcrumbItem>科研进程</BreadcrumbItem>
+      <Breadcrumb :style="{margin: '12px -22px'}">
+        <BreadcrumbItem>科研新闻</BreadcrumbItem>
       </Breadcrumb>
-      <Content :style="{padding: '24px', minHeight: '280px', background: '#fff'}">
-        <Carousel autoplay v-model="value2" :autoplay-speed="5000"  :height="400" loop>
+      <Content :style="{padding: '30px', minHeight: '280px', width:'100%' ,background: '#fff'}">
+        <Carousel autoplay v-model="value2" :autoplay-speed="8000"  :height="400" loop>
           <CarouselItem>
             <div class="demo-carousel">
-              <img src="../assets/img/55.jpg" alt="">
+              <img src="../assets/img/lunbo1.png" alt="">
             </div>
           </CarouselItem>
           <CarouselItem>
             <div class="demo-carousel">
-              <img src="../assets/img/55.jpg" alt="">
+              <img src="../assets/img/lunbo2.png" alt="">
             </div>
           </CarouselItem>
           <CarouselItem>
             <div class="demo-carousel">
-              <img src="../assets/img/55.jpg" alt="">
+              <img src="../assets/img/lunbo3.png" alt="">
             </div>
           </CarouselItem>
           <CarouselItem>
             <div class="demo-carousel">
-              <img src="../assets/img/55.jpg" alt="">
+              <img src="../assets/img/lunbo5.png" alt="">
             </div>
           </CarouselItem>
         </Carousel>
       </Content>
     </Layout>
-    <div>
-      <section class="article-content">
-        <div class="article-protect-tab">
-          <span>项目进展</span>
-        </div>
-        <div class="article-protect-body">
-          <img src="../assets/img/proce1.jpg">
-          <ul>
-            <li>
-              <a href="article_list_content.html">
-                <h3>科研进程1</h3><span>2017-07</span>
-              </a>
-              <p>项目组赴内蒙古乌海及宁夏灵武考察</p>
-            </li>
-            <li>
-              <a href="article_list_content.html">
-                <h3>科研进程2</h3>
-                <span>2017-09</span>
-              </a>
-              <p>在北京林业大学召开项目启动会</p>
-            </li>
-            <li>
-              <a href="article_list_content.html">
-                <h3>科研进程3</h3>
-                <span>2017-10</span>
-              </a>
-              <p>项目组在第二届国际土地复垦会议中召开西部矿区生态修复专项会议</p>
-            </li>
-          </ul>
-        </div>
-      </section>
-    </div>
-    <div class="news-info">
-      <h2>科研进程</h2>
-      <div>
-        <ul>
-          <li><img src="../assets/img/proce4.jpg"><div><p>监测点1</p><span>2017年11月 项目组在北京林业大学召开课题实施方案论证会</span><a href="article_list.html">MORE</a></div></li>
-          <li><img src="../assets/img/proce5.jpg"><div><p>监测点2</p><span>2017年12月 项目组赴内蒙古乌海市进行观测实验</span><a href="article_list.html">MORE</a></div></li>
-          <li><img src="../assets/img/proce6.jpg"><div><p>监测点3</p><span>2018年2月 项目组参与内蒙古乌海市马万良焦化厂绿化工程</span><a href="article_list.html">MORE</a></div></li>
-          <li><img src="../assets/img/proce7.jpg"><div><p>监测点1</p><span>2018年3月 项目组赴宁夏与宁煤集团研究示范工程</span><a href="article_list.html">MORE</a></div></li>
-          <!--<li><img src="../assets/img/proce2.jpg"><div><p>监测点2</p><span>国污费还会列入未来环境税征收范围</span><a href="article_list.html">MORE</a></div></li>-->
-          <!--<li><img src="../assets/img/proce2.jpg"><div><p>监测点3</p><span>相会列入未来环境税征收范围</span><a href="article_list.html">MORE</a></div></li>-->
+    <div class="news">
+      <Row :gutter="32" type="flex">
+        <Col span="16" class="demo-tabs-style1" style="background: #e3e8ee;padding:16px;">
+        <Tabs type="card">
+          <TabPane label="今天">
+            <ul>
+              <li><span>2017-08-13</span>创新决胜未来海外关注习近平院士大会上的讲话</li>
+              <li><span>2017-08-13</span>习近平为上合组织发展指明方向大会讲话金句</li>
+              <li><span>2017-08-13</span>国际社会热切期待上合组织青岛峰会</li>
+              <li><span>2017-08-13</span>中俄智库高端论坛在京举行</li>
+              <li><span>2017-08-13</span>中国空间站国际合作正式开启</li>
+              <li><span>2017-08-13</span>创新决胜未来海外关注习近平院士大会上的讲话</li>
+              <li><span>2017-08-13</span>习近平为上合组织发展指明方向 大会讲话金句</li>
+              <li><span>2017-08-13</span>国际社会热切期待上合组织青岛峰会</li>
+              <li><span>2017-08-13</span>中俄智库高端论坛在京举行</li>
+              <li><span>2017-08-13</span>中国空间站国际合作正式开启</li>
+            </ul>
+          </TabPane>
+          <TabPane label="一个星期">
+            <ul>
+              <li>创新决胜未来海外关注习近平院士大会上的讲话   <span>2017-08-13</span></li>
+              <li>习近平为上合组织发展指明方向 大会讲话金句<span>2017-08-13</span></li>
+              <li>国际社会热切期待上合组织青岛峰会<span>2017-08-13</span></li>
+              <li>中俄智库高端论坛在京举行<span>2017-08-13</span></li>
+              <li>中国空间站国际合作正式开启<span>2017-08-13</span></li>
+              <li>创新决胜未来海外关注习近平院士大会上的讲话<span>2017-08-13</span></li>
+              <li>习近平为上合组织发展指明方向 大会讲话金句<span>2017-08-13</span></li>
+              <li>国际社会热切期待上合组织青岛峰会<span>2017-08-13</span></li>
+              <li>中俄智库高端论坛在京举行<span>2017-08-13</span></li>
+              <li>中国空间站国际合作正式开启<span>2017-08-13</span></li>
+            </ul>
+          </TabPane>
+          <TabPane label="一个月">
+            <ul>
+              <li>创新决胜未来海外关注习近平院士大会上的讲话<span>2017-08-13</span></li>
+              <li>习近平为上合组织发展指明方向 大会讲话金句<span>2017-08-13</span></li>
+              <li>国际社会热切期待上合组织青岛峰会<span>2017-08-13</span></li>
+              <li>中俄智库高端论坛在京举行<span>2017-08-13</span></li>
+              <li>中国空间站国际合作正式开启<span>2017-08-13</span></li>
+              <li>创新决胜未来海外关注习近平院士大会上的讲话<span>2017-08-13</span></li>
+              <li>习近平为上合组织发展指明方向 大会讲话金句<span>2017-08-13</span></li>
+              <li>国际社会热切期待上合组织青岛峰会<span>2017-08-13</span></li>
+              <li>中俄智库高端论坛在京举行<span>2017-08-13</span></li>
+              <li>中国空间站国际合作正式开启<span>2017-08-13</span></li>
 
-        </ul>
-      </div>
-    </div>
 
+            </ul>
+          </TabPane>
+        </Tabs>
+        </Col>
+        <Col span="8" class="demo-tabs-style1" style="background: #e3e8ee;padding:16px;">
+        <Tabs type="card">
+          <TabPane label="全部新闻">
+            <ul>
+              <li v-for='value,index in news'>{{value}}</li>
+            </ul>
+            <Button type="text" @click="showNews">更多>></Button>
+          </TabPane>
+        </Tabs>
+        </Col>
+      </Row>
+    </div>
   </div>
 </template>
 
@@ -85,7 +99,24 @@
     name: 'IndexProcess',
     data () {
       return {
-        value2:0
+        value2:0,
+        news:['创新决胜未来海外关注习近平院士大会上的讲话',
+          '习近平为上合组织发展指明方向大会讲话金句',
+          '国际社会热切期待上合组织青岛峰会',
+          '中俄智库高端论坛在京举行',
+          '中国空间站国际合作正式开启',
+          '创新决胜未来海外关注习近平院士大会上的讲话',
+          '习近平为上合组织发展指明方向大会讲话金句',
+          '国际社会热切期待上合组织青岛峰会',
+          '国际社会热切期待上合组织青岛峰会'
+
+        ]
+      }
+    },
+    methods:{
+      showNews(){
+        this.$Message.success('查询新闻成功!');
+        this.$router.push('/newsShow');
       }
     }
   }
@@ -108,20 +139,15 @@
     height: 450px;margin-top:20px;
     background-size:1200px 450px;
   }
+
   img {
     box-sizing: border-box;
     vertical-align: middle;
   }
-  .article-content {
-    max-width: 1100px;
-    margin: 0 auto;
-    overflow: hidden;
-    padding: 0;
+  .demo-carousel img{
+    width: 100%;
   }
-  .article-protect-tab {
-    text-align: center;
-    padding: 3rem 0;
-  }
+
   .article-protect-tab span {
     border: 1px solid #aaa;
     width: 120px;
@@ -134,10 +160,6 @@
     font-weight: 700;
     margin: 0 1rem;
     cursor: pointer;
-  }
-  .article-protect-body {
-    width: 100%;
-    height: 350px;
   }
   .article-protect-body img {
     max-width: 40%;
@@ -171,63 +193,48 @@
     color: #000;
     font-weight: 600;
   }
-  .news-info {
-    max-width: 100%;
-    height:550px;
-    text-align: center;
-    overflow: auto;
-    margin-bottom: 10rem;
+
+  .news{
+    padding: 20px;
+    margin: 20px;
+    background: rgb(227, 232, 238);
   }
-  .news-info h2 {
-    display: block;
-    width: 100px;
-    margin: 40px auto;
-    padding: 3px 0;
-    border-bottom: 2px solid #000;
-    font-size: 14px;
-  }
-  .news-info>div ul {
-    float: left;
-    margin: 0;
-    padding: 0;
+  .news ul {
     width: 100%;
+    padding-left:20px;
   }
-  .news-info>div ul li {
+  .news ul li{
     width: 100%;
-    list-style: none;
-    float: left;
-    margin-bottom: 23px;
+    font-size: 15px;
+    float:left;
+  }
+  .news Button{
+    float:right;
+  }
+  .news ul li span {
+    font-size: 16px;
+    float:right;
+  }
+  .news demo-tabs-style1 {
+    height: 120px;
+    margin-top: -16px;
+
   }
 
-  .news-info>div ul li img {
-    width: 172px;
-    float: left;
-  }
-  .news-info>div ul li p {
-    float: left;
-    width: 71%;
-    text-align: center;
-    color: black;
-    margin: 5px 0 0 10px;
+  .demo-tabs-style1 > .ivu-tabs-card > .ivu-tabs-content > .ivu-tabs-tabpane {
+    background: #fff;
+    padding: 16px;
   }
 
-  .news-info>div ul li span {
-    float: left;
-    width: 71%;
-    text-align: center;
-    color: #ababab;
-    margin: 5px 0 0 10px;
+  .demo-tabs-style1 > .ivu-tabs.ivu-tabs-card > .ivu-tabs-bar .ivu-tabs-tab {
+    border-color: transparent;
   }
-  .news-info>div ul li a {
-    border: 1px solid #999;
-    color: #000;
-    display: block;
-    width: 90px;
-    text-align: center;
-    height: 28px;
-    float: right;
+
+  .demo-tabs-style1 > .ivu-tabs-card > .ivu-tabs-bar .ivu-tabs-tab-active {
+    border-color: #fff;
   }
 
 
 </style>
+
 
