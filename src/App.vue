@@ -62,27 +62,20 @@
                         预警报警
                     </template>
                 </Submenu>
-                <!--<Submenu name="7">-->
-                    <!--<template slot="title">-->
-                        <!--<Icon type="stats-bars"></Icon>-->
-                        <!--智能降尘-->
-                    <!--</template>-->
-                <!--</Submenu>-->
             </Menu>
             </Sider>
             <Content>
-              <router-view></router-view>
+              <router-view> </router-view>
             </Content>
         </Layout>
         <Footer>Footer</Footer>
     </Layout>
-
     <div v-if="isLogin">
-      <Login @GoHome="goHome" @Tologin="tologin"></Login>
+      <router-view> </router-view>
     </div>
   </div>
 </template>
-
+<!--<Login @GoHome="goHome" @Tologin="tologin"></Login>-->
 <script>
   import Login from './components/Login'
 export default {
@@ -94,7 +87,14 @@ export default {
     }
   },
   created(){
-   //this.TransPage();
+   if(window.location.href.indexOf('login')!=-1 || window.location.hash=='#/'){
+     //console.log("----"+window.location.href)
+     this.isLogin=true
+     console.log("****登陆"+this.isLogin);
+   }else{
+     this.isLogin=false
+     console.log("****首页"+this.isLogin);
+   }
   },
   components:{
     Login,
@@ -135,7 +135,11 @@ export default {
     },
     tologin(msg){
       this.username=msg
-    }
+    },
+    // handleLogin(){
+    //   this.isLogin=false
+    //   this.$router.push('/index-project')
+    // }
 
   }
 }

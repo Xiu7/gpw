@@ -15,8 +15,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'IndexProject',
-      component: IndexProject
+      name: 'Login',
+      component: Login
     },
     {
 

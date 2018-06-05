@@ -22,11 +22,11 @@
     name: "official-weather",
     data () {
       return {
-        columnsData:[{'title':'风力（级）',key:'windpower'},{'title':'记录时间',key:'recordDate'},
+        columnsData:[{'title':'区号',key:'wep_Now'},{'title':'风力（级）',key:'windpower'},{'title':'时间',key:'recordDate'},
           {'title':'温度（℃）',key:'tem'},{'title':'气压（/百帕）',key:'pre'},{'title':'相对湿度（%）',key:'rhu'},
           {'title':'两分钟平均风向（度）',key:'win_D_Avg_2mi'},{'title':'最大风速风向（度）',key:'win_D_S_Max'},{'title':'极大风速风向（度）',key:'win_D_INST_Max'},
-          {'title':'极大风速（）',key:'win_S_Inst_Max'},{'title':'两分钟平均风速（m/s）',key:'win_S_Avg_2mi'},{'title':'过去一小时降水量m/s（mm）',key:'pre_1h'},
-          {'title':'水平能见度（人工）',key:'vis'},{'title':'现在天气',key:'wep_Now'},{'title':'区号',key:'wep_Now'}
+          {'title':'极大风速（m/s）',key:'win_S_Inst_Max'},{'title':'两分钟平均风速（m/s）',key:'win_S_Avg_2mi'},{'title':'过去一小时降水量（mm）',key:'pre_1h'},
+          {'title':'水平能见度',key:'vis'},{'title':'天气',key:'wep_Now'}
         ],
         tableData:[],
         startDateValue: null,
