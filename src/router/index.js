@@ -8,6 +8,7 @@ import HistoryShow from '@/components/HistoryShow'
 import Login from '@/components/Login'
 import NewsShow from '@/components/NewsShow'
 import WeatherReport from '@/components/WeatherReport'
+import OfficialWeather from '@/components/OfficialWeather'
 Vue.use(Router)
 
 export default new Router({
@@ -57,6 +58,11 @@ export default new Router({
       path: '/newsShow',
       name: 'NewsShow',
       component: NewsShow
+    },
+    {
+      path: '/official-weather',
+      name: 'OfficialWeather',
+      component: OfficialWeather
     }
   ]
 })

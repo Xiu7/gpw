@@ -9,7 +9,7 @@
           <div class="header_right">
 
             <span class="welcome_you" style="width:50px;">欢迎您</span>
-            <p class="welcome_you">王景华迎您您</p>
+            <p class="welcome_you">{{username}}</p>
             <Icon type="ios-gear-outline fl make_icon"></Icon>
             <p class="welcome_you log_out" @click="exit()">[退出]</p>
           </div>
@@ -36,19 +36,20 @@
                     <MenuItem name="3-2">历史查询</MenuItem>
                     <MenuItem name="3-3">单站分析</MenuItem>
                 </Submenu>
-                <Submenu name="4">
+                <MenuItem name="4">
+                  <Icon type="stats-bars"></Icon>
+                  官方气象
+                </MenuItem>
+                <Submenu name="5">
                     <template slot="title">
                         <Icon type="stats-bars"></Icon>
                         查询分析
                     </template>
-                        <MenuItem name="4-1">历史数据</MenuItem>
-                        <MenuItem name="4-2">单站分析</MenuItem>
+                        <MenuItem name="5-1">历史数据</MenuItem>
+                        <MenuItem name="5-2">单站分析</MenuItem>
                         <!--<MenuItem name="3-3">历史预警</MenuItem>-->
                 </Submenu>
-                <MenuItem name="5">
-                        <Icon type="stats-bars"></Icon>
-                        官方气象
-                </MenuItem>
+
                 <Submenu name="6">
                     <template slot="title">
                         <Icon type="stats-bars"></Icon>
@@ -77,7 +78,7 @@
     </Layout>
 
     <div v-if="isLogin">
-      <Login @GoHome="goHome"></Login>
+      <Login @GoHome="goHome" @Tologin="tologin"></Login>
     </div>
   </div>
 </template>
@@ -88,7 +89,8 @@ export default {
   name: 'App',
   data(){
     return{
-      isLogin:true
+      isLogin:true,
+      username:''
     }
   },
   created(){
@@ -117,11 +119,8 @@ export default {
             this.$router.push("/history-show");
             break;
           case '4':
-            this.$router.push("weather-report");
+            this.$router.push("/official-weather");
             break;
-        case '5':
-          this.$router.push("login");
-          break;
       }
     },
     handleSubMenuChange(name,val){
@@ -133,6 +132,9 @@ export default {
     },
     goHome(msg){
       this.isLogin=msg
+    },
+    tologin(msg){
+      this.username=msg
     }
 
   }
