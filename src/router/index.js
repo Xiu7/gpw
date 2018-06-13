@@ -9,6 +9,11 @@ import Login from '@/components/Login'
 import NewsShow from '@/components/NewsShow'
 import WeatherReport from '@/components/WeatherReport'
 import OfficialWeather from '@/components/OfficialWeather'
+import Ownspace from '@/components/Own-space/Own-space'
+import EditableTable from '@/components/Table/EditableTable'
+import Error from '@/components/error-page/404'
+import Map from '@/components/Map'
+import DataInsert from '@/components/DataInsert'
 Vue.use(Router)
 
 export default new Router({
@@ -63,6 +68,34 @@ export default new Router({
       path: '/official-weather',
       name: 'OfficialWeather',
       component: OfficialWeather
+    },
+    {
+
+      path: '/ownspace',
+      name: 'Ownspace',
+      component: Ownspace
+    },
+    {
+
+      path: '/editabletable',
+      name: 'EditableTable',
+      component: EditableTable
+    },
+    {
+      path: '/error',
+      name: 'Error',
+      component: Error
+    },
+    {
+      path: '/map',
+      name: 'Map',
+      component: Map
+    },
+    {
+      path: '/dataInsert',
+      name: 'DataInsert',
+      component: DataInsert
     }
+
   ]
 })

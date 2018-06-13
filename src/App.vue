@@ -5,14 +5,24 @@
           <div class="header_left">
             <div class="monitor_logo"></div>
             <div class="project_title">西北干旱荒漠区煤炭基地生态安全监测平台</div>
+
           </div>
           <div class="header_right">
-
-            <span class="welcome_you" style="width:50px;">欢迎您</span>
-            <p class="welcome_you">{{username}}</p>
-            <Icon type="ios-gear-outline fl make_icon"></Icon>
-            <p class="welcome_you log_out" @click="exit()">[退出]</p>
-          </div>
+            <Row type="flex" justify="end" align="middle" class="user-dropdown-innercon">
+              <span class="welcome_you" style="width:50px; margin-right: 20px">欢迎您</span>
+              <Dropdown transfer trigger="click" @on-click="handleClickUserDropdown">
+                <a href="javascript:void(0)">
+                  <span class="main-user-name" style="color: white">王景华</span>
+                  <Icon type="arrow-down-b" style="color: white"></Icon>
+                </a>
+                <DropdownMenu slot="list">
+                  <DropdownItem name="ownSpace">个人中心</DropdownItem>
+                  <DropdownItem name="loginout" divided>退出登录</DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
+              <Avatar  style='margin-left: 10px' src="https://i.loli.net/2017/08/21/599a521472424.jpg" > </Avatar>
+            </Row>
+            <</div>
         </Header>
         <Layout>
             <Sider hide-trigger class="layout_silder">
@@ -40,35 +50,31 @@
                   <Icon type="stats-bars"></Icon>
                   官方气象
                 </MenuItem>
-                <Submenu name="5">
-                    <template slot="title">
-                        <Icon type="stats-bars"></Icon>
-                        查询分析
-                    </template>
-                        <MenuItem name="5-1">历史数据</MenuItem>
-                        <MenuItem name="5-2">单站分析</MenuItem>
-                        <!--<MenuItem name="3-3">历史预警</MenuItem>-->
-                </Submenu>
-
-                <Submenu name="6">
-                    <template slot="title">
-                        <Icon type="stats-bars"></Icon>
-                        数据录入
-                    </template>
-                </Submenu>
-                <Submenu name="7">
-                    <template slot="title">
-                        <Icon type="stats-bars"></Icon>
-                        预警报警
-                    </template>
-                </Submenu>
+                <MenuItem name="5">
+                  <Icon type="ios-paper"></Icon>
+                  数据录入
+                </MenuItem>
+                <MenuItem name="6">
+                  <Icon type="ios-paper"></Icon>
+                  设备管理
+                </MenuItem>
+                <MenuItem name="7">
+                  <Icon type="ios-paper"></Icon>
+                  错误页面
+                </MenuItem>
             </Menu>
             </Sider>
             <Content>
               <router-view> </router-view>
             </Content>
         </Layout>
-        <Footer>Footer</Footer>
+        <Footer>
+          <ul class="footer">
+            <li><Icon type="ios-email"></Icon><span>邮箱:mark_yanlei@qq.com</span></li>
+            <li><Icon type="ios-telephone"></Icon><span>电话:62330110</span></li>
+            <li><Icon type="location">地址</Icon><span>地址:北京林业大学清华东路35号 北京林业大学</span></li>
+          </ul>
+       </Footer>
     </Layout>
     <div v-if="isLogin">
       <router-view> </router-view>
@@ -86,6 +92,7 @@ export default {
       username:''
     }
   },
+
   created(){
    if(window.location.href.indexOf('login')!=-1 || window.location.hash=='#/'){
      //console.log("----"+window.location.href)
@@ -98,6 +105,8 @@ export default {
   },
   components:{
     Login,
+  },
+  computed:{
   },
   methods:{
     handleMenuChange:function(name){
@@ -121,6 +130,17 @@ export default {
           case '4':
             this.$router.push("/official-weather");
             break;
+         case '5':
+           console.log(123);
+          this.$router.push("/map");
+          break;
+        case '6':
+          this.$router.push("/editabletable");
+          break;
+        case '7':
+          console.log(123);
+          this.$router.push("/error");
+          break;
       }
     },
     handleSubMenuChange(name,val){
@@ -136,11 +156,14 @@ export default {
     tologin(msg){
       this.username=msg
     },
-    // handleLogin(){
-    //   this.isLogin=false
-    //   this.$router.push('/index-project')
-    // }
-
+    handleClickUserDropdown (name) {
+      if (name === 'ownSpace') {
+        this.$router.push('/ownspace')
+      } else if (name === 'loginout') {
+        // 退出登录
+        this.$router.push('/login');
+      }
+    },
   }
 }
 </script>
@@ -226,4 +249,29 @@ html,body{
 .content-common{
   padding: 15px 30px;
 }
+.ivu-layout-footer{
+  color: lightgrey;
+  padding: 10px 50px;
+}
+.footer {
+  padding: 0 auto;
+  margin: 0 auto;
+  text-align: center;
+}
+.footer li {
+  list-style: none;
+  display: inline-block;
+  width: 30%;
+  text-align: center;
+  vertical-align: top;
+  font-size: 20px;
+}
+.footer li span {
+  display: block;
+  margin: 0px auto;
+  white-space: normal;
+  font-size: 14px;
+  text-align: center;
+}
+
 </style>

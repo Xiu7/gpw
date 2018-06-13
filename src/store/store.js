@@ -10,6 +10,7 @@ import GlobalObject from './modules/GlobalObject'
 Vue.use(Vuex)
 export default new Vuex.Store({
   modules: {
+
     GlobalObject
   }
 })
