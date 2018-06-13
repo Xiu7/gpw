@@ -1,7 +1,6 @@
 <template>
   <div class="layout">
     <Layout>
-
       <Content :style="{padding: '0 10px'}">
         <Breadcrumb :style="{margin: '20px 18px'}">
           <h2>主要内容</h2>

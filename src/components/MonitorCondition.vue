@@ -19,8 +19,6 @@
         <!--v-model="dateValue"></DatePicker>-->
       <DatePicker type="date" placeholder="Select date"
                   @on-change="startDateValue=$event" style="width: 150px" v-model="startDateValue"></DatePicker>
-      <DatePicker type="date" v-model="endDateValue" placeholder="Select date"
-                  style="width: 150px" @on-change="endDateValue=$event"></DatePicker>
       <Button type="primary" style="margin-left:15px;" @click="searchTableData"> 查询</Button>
       </Col>
     </Row>

@@ -44,8 +44,8 @@
           start:this.startDateValue,
           end:this.endDateValue,
         }
-        console.log(postData)
-        this.$http.post('/compare', postData).then(
+        console.log(typeof postData.start)
+       /* this.$http.post('/compare', postData).then(
           (response) => {
             console.log(response.length)
             this.tableData = []
@@ -72,7 +72,7 @@
               this.tableData.push(data)
             }
             console.log(this.tableData)
-          })
+          })*/
       }
     }
   }

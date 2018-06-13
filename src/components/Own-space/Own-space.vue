@@ -35,7 +35,7 @@
           </FormItem>
           <div>
             <Button type="text" style="width: 100px;" @click="cancelEditUserInfor">取消</Button>
-            <Button type="primary" style="width: 100px;" :loading="save_loading" @click="saveEdit">保存</Button>
+            <Button type="primary" style="width: 100px;" @click="saveEdit">保存</Button>
           </div>
         </Form>
       </div>
@@ -55,7 +55,7 @@
       </Form>
       <div slot="footer">
         <Button type="text" @click="cancelEditPass">取消</Button>
-        <Button type="primary" :loading="savePassLoading" @click="saveEditPass">保存</Button>
+        <Button type="primary"  @click="saveEditPass">保存</Button>
       </div>
     </Modal>
   </div>

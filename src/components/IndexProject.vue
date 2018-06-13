@@ -235,12 +235,12 @@
     text-align: center;
   }
   .contact-icon {
-    max-width: 1100px;
-    margin: 30px auto;
-    padding: 0;
-    text-align: center;
-    white-space: nowrap;
-  }
+     max-width: 1100px;
+     margin: 30px auto;
+     padding: 0;
+     text-align: center;
+     white-space: nowrap;
+   }
   .contact-icon li {
     list-style: none;
     display: inline-block;
