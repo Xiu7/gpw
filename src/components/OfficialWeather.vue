@@ -44,7 +44,7 @@
           start:this.startDateValue,
           end:this.endDateValue,
         }
-        console.log(typeof postData.start)
+        console.log( postData.start)
        /* this.$http.post('/compare', postData).then(
           (response) => {
             console.log(response.length)

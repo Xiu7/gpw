@@ -30,7 +30,7 @@
               @on-select="handleMenuChange"
                      @on-open-change="handleSubMenuChange">
                 <MenuItem name="1">
-                  <Icon type="ios-paper"></Icon>
+                  <Icon type="home"></Icon>
                   首页
                 </MenuItem>
                 <MenuItem name="2">
@@ -47,15 +47,15 @@
                     <MenuItem name="3-3">单站分析</MenuItem>
                 </Submenu>
                 <MenuItem name="4">
-                  <Icon type="stats-bars"></Icon>
+                  <Icon type="earth"></Icon>
                   官方气象
                 </MenuItem>
                 <MenuItem name="5">
-                  <Icon type="ios-paper"></Icon>
+                  <Icon type="android-create"></Icon>
                   数据录入
                 </MenuItem>
                 <MenuItem name="6">
-                  <Icon type="ios-paper"></Icon>
+                  <Icon type="android-settings"></Icon>
                   设备管理
                 </MenuItem>
                 <MenuItem name="7">
@@ -177,7 +177,12 @@ html,body{
     color:#333;
     font-size: 14px;
 }
-
+.ivu-layout-header {
+  background: mediumseagreen;
+  padding: 0 50px;
+  height: 64px;
+  line-height: 64px;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -240,7 +245,8 @@ html,body{
   background: #fff;
 }
 .ivu-layout-footer{
-  background: #495060;
+  /*background: mediumseagreen;*/
+  background:dimgray;
 }
 .main_common_box{
   width:100%;
@@ -264,7 +270,7 @@ html,body{
   width: 30%;
   text-align: center;
   vertical-align: top;
-  font-size: 20px;
+  font-size: 25px;
 }
 .footer li span {
   display: block;
