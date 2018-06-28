@@ -5,7 +5,6 @@
           <div class="header_left">
             <div class="monitor_logo"></div>
             <div class="project_title">西北干旱荒漠区煤炭基地生态安全监测平台</div>
-
           </div>
           <div class="header_right">
             <Row type="flex" justify="end" align="middle" class="user-dropdown-innercon">
@@ -22,7 +21,7 @@
               </Dropdown>
               <Avatar  style='margin-left: 10px' src="https://i.loli.net/2017/08/21/599a521472424.jpg" > </Avatar>
             </Row>
-            <</div>
+            </div>
         </Header>
         <Layout>
             <Sider hide-trigger class="layout_silder">
@@ -94,6 +93,7 @@ export default {
   },
 
   created(){
+    this.$root.$eventHub.$on('login-success-event', this.handleLogin)
    if(window.location.href.indexOf('login')!=-1 || window.location.hash=='#/'){
      //console.log("----"+window.location.href)
      this.isLogin=true
@@ -109,6 +109,9 @@ export default {
   computed:{
   },
   methods:{
+    handleLogin () {
+      this.isLogin=false
+    },
     handleMenuChange:function(name){
         console.log(name.toString())
       switch (name.toString()) {

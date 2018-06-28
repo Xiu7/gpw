@@ -94,6 +94,7 @@
           this.$Message.success('提交成功!');
           this.$router.push('/index-project')
           this.$emit('GoHome',this.isLogin);
+          this.$root.$eventHub.$emit('login-success-event')
           console.log("----"+window.location.href)
           // this.$emit('Tologin',this.formInline.user);
 
