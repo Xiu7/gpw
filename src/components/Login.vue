@@ -93,6 +93,7 @@
           Bus.$emit('showNavigation', false);
           this.$router.push('/index-project')
           this.$emit('GoHome',this.isLogin);
+          this.$root.$eventHub.$emit('login-success-event')
           console.log("----"+window.location.href)
 
         } else {

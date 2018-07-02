@@ -13,6 +13,7 @@ Vue.config.productionTip = false
 Vue.prototype.$echarts=echarts
 Vue.prototype.$http = http
 var $ = window.$ = window.jQuery =  require('jquery')
+Vue.prototype.$eventHub = Vue.prototype.$eventHub || new Vue()
 Vue.use(iView)
 window.Bus = new Vue();
 /* eslint-disable no-new */
