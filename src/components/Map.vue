@@ -1,6 +1,6 @@
 <template>
   <div class="map">
-    <div style="height:950px;margin:20px;" id="home_page_map"></div>
+    <div style="height:950px;margin:10px;" id="home_page_map"></div>
     <Button type="text" @click="handleChange">更多>></Button>
   </div>
 

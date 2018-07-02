@@ -14,7 +14,7 @@ Vue.prototype.$echarts=echarts
 Vue.prototype.$http = http
 var $ = window.$ = window.jQuery =  require('jquery')
 Vue.use(iView)
-
+window.Bus = new Vue();
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

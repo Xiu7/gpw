@@ -29,6 +29,7 @@ export default new Router({
       name: 'Login',
       component: Login
     },
+
     {
       path: '/index-project',
       name: 'IndexProject',

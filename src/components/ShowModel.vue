@@ -61,7 +61,7 @@
 <style>
   .show-model-content{
     padding:10px;
-    width:280px;
+    width:290px;
     min-height:180px;
     position: absolute;
     z-index:8;

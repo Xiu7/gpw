@@ -85,17 +85,15 @@
       }
 
     },
-    props:['Login'],
-
 
     methods: {
       handleSubmit() {
         if (this.formInline.user == '123456' && this.formInline.password == '1234567') {
           this.$Message.success('提交成功!');
+          Bus.$emit('showNavigation', false);
           this.$router.push('/index-project')
           this.$emit('GoHome',this.isLogin);
           console.log("----"+window.location.href)
-          // this.$emit('Tologin',this.formInline.user);
 
         } else {
           this.$Message.error('请输入用户名密码!');
@@ -171,4 +169,5 @@
   }
   span{cursor:pointer;}
 </style>
+
 

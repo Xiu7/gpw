@@ -12,7 +12,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/lastdata': {
-        target: 'http://123.57.12.101:3000',
+        target: 'httapip://123.57.12.101:3000',
         changeOrigin: true,
         pathRewrite: {
           '^/lastdata': '/lastdata'

@@ -114,7 +114,7 @@
       },
       exportData(){
         this.$refs.table.exportCsv({
-          filename: '原始数据'
+          filename: '设备信息'
         });
       },
     }
@@ -132,5 +132,9 @@
   .export-data-btn{
       margin-left: 20px;
     width: 100px;
+  }
+  .ivu-breadcrumb {
+    color: #999;
+    font-size: 20px;
   }
 </style>

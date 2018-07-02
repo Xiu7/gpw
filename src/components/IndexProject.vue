@@ -270,6 +270,5 @@
     height: 70px;
     background: url(../assets/img/contact3.png) center center/contain no-repeat;
   }
-
 </style>
 

@@ -20,7 +20,13 @@
                   <DropdownItem name="loginout" divided>退出登录</DropdownItem>
                 </DropdownMenu>
               </Dropdown>
-              <Avatar  style='margin-left: 10px' src="https://i.loli.net/2017/08/21/599a521472424.jpg" > </Avatar>
+              <div  class="head_img">
+                <Avatar :src="userInfo.avatar" style="width:48px;height: 48px; border-radius: 50%"></Avatar>
+              </div>
+              <div class="setting_right" @click.stop="uploadHeadImg" >
+                <div class="caption" style="font-size: 10px">更改头像</div>
+              </div>
+              <input type="file" accept="image/*" @change="handleFile" class="hiddenInput"/>
             </Row>
             <</div>
         </Header>
@@ -65,7 +71,7 @@
             </Menu>
             </Sider>
             <Content>
-              <router-view> </router-view>
+              <router-view></router-view>
             </Content>
         </Layout>
         <Footer>
@@ -81,27 +87,33 @@
     </div>
   </div>
 </template>
-<!--<Login @GoHome="goHome" @Tologin="tologin"></Login>-->
 <script>
   import Login from './components/Login'
 export default {
   name: 'App',
   data(){
     return{
-      isLogin:true,
-      username:''
+      isLogin:false,
+      username:'',
+      userInfo: {
+        avatar: 'http://img.zcool.cn/community/0196a156c937e46ac7252ce68a8504.png'
+      }
     }
   },
-
-  created(){
-   if(window.location.href.indexOf('login')!=-1 || window.location.hash=='#/'){
-     //console.log("----"+window.location.href)
-     this.isLogin=true
-     console.log("****登陆"+this.isLogin);
-   }else{
-     this.isLogin=false
-     console.log("****首页"+this.isLogin);
-   }
+//https://i.loli.net/2017/08/21/599a521472424.jpg
+  mounted(){
+    if(window.location.href.indexOf('login')!=-1 || window.location.hash=='#/'){
+      //console.log("----"+window.location.href)
+      this.isLogin=true
+      console.log("****登陆"+this.isLogin);
+    }else{
+      this.isLogin=false
+      console.log("****首页"+this.isLogin);
+    };
+    Bus.$on('showNavigation', data => {
+      console.log(data);
+      this.isLogin = data;
+    });
   },
   components:{
     Login,
@@ -161,8 +173,23 @@ export default {
         this.$router.push('/ownspace')
       } else if (name === 'loginout') {
         // 退出登录
+        this.isLogin = true;
         this.$router.push('/login');
       }
+    },
+    uploadHeadImg: function () {
+      this.$el.querySelector('.hiddenInput').click()
+    },
+    // 将头像显示
+    handleFile: function (e) {
+      let $target = e.target || e.srcElement
+      let file = $target.files[0]
+      var reader = new FileReader()
+      reader.onload = (data) => {
+        let res = data.target || data.srcElement
+        this.userInfo.avatar = res.result
+      }
+      reader.readAsDataURL(file)
     },
   }
 }
@@ -213,7 +240,7 @@ html,body{
   font-weight: 600;
 }
 .header_right{
-  width:224px;height: 64px;float:right;
+  width:400px;height: 64px;float:right;
   line-height: 64px;
   color:#fff;
 }
@@ -246,7 +273,7 @@ html,body{
 }
 .ivu-layout-footer{
   /*background: mediumseagreen;*/
-  background:dimgray;
+  background:mediumseagreen;
 }
 .main_common_box{
   width:100%;
@@ -279,5 +306,13 @@ html,body{
   font-size: 14px;
   text-align: center;
 }
+.caption {
+color: dimgray;
+  float: right;
+  margin-left: 10px;
+}
+  .head_img{
+    margin-left: 15px;
 
+  }
 </style>

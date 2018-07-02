@@ -59,6 +59,7 @@
     },
     created () {
       this.mapHeight = document.documentElement.clientHeight - 120
+
     },
     mounted () {
       TMap().then(qq => {
@@ -80,36 +81,37 @@
         let position1 = new qq.maps.LatLng(39.708656,106.905513)
         let position2 = new qq.maps.LatLng(39.706576, 106.910126)
         let position3 = new qq.maps.LatLng(39.703835, 106.904247)
+
         let marker1 = new qq.maps.Marker({
           position: position1,
-          map: this.map
+          map: this.map,
         })
-        // var infoWinOne = new qq.maps.InfoWindow({
-        //   map: this.map
-        // });
-        // infoWinOne.open()
-        // infoWinOne.setContent('第一监测点')
-        // infoWinOne.setPosition(position1)
+        var label1 = new qq.maps.Label({
+          position: position1,
+          map: this.map,
+          content:'<div  class="mapde" >监测点1</div>'
+        });
+        label1.setStyle({backgroundColor:"mediumseagreen",border:"none","border-radius":"8px"});
         let marker2 = new qq.maps.Marker({
           position: position2,
           map: this.map
         })
-        // var infoWinTwo = new qq.maps.InfoWindow({
-        //   map: this.map
-        // })
-        // infoWinTwo.open()
-        // infoWinTwo.setContent('第二监测点')
-        // infoWinTwo.setPosition(position2)
+        var label2 = new qq.maps.Label({
+          position: position2,
+          map: this.map,
+          content:'<div class="mapde" >监测点2</div>'
+        });
+        label2.setStyle({backgroundColor:"mediumseagreen",border:"none","border-radius":"8px"});
         let marker3 = new qq.maps.Marker({
           position: position3,
           map: this.map
         })
-        // var infoWinThree = new qq.maps.InfoWindow({
-        //   map: this.map
-        // })
-        // infoWinThree.open()
-        // infoWinThree.setContent('第三监测点')
-        // infoWinThree.setPosition(position3)
+        var label3 = new qq.maps.Label({
+          position: position3,
+          map: this.map,
+          content:'<div class="mapde">监测点3</div>'
+        });
+        label3.setStyle({backgroundColor:"mediumseagreen",border:"none","border-radius":"8px"});
         var pixel=null
         qq.maps.event.addListener(marker1, 'click', ()=> {
           this.isVisibleOne = true
@@ -186,4 +188,12 @@
     padding:20px 20px 35px 20px !important;
     background-color: #fff;
   }
+.mapde{
+  width: 60px;
+  height: 20px;
+  text-align:center;
+  background-color:mediumseagreen;
+  color: white;
+
+}
 </style>
