@@ -12,7 +12,8 @@
       <Button type="primary" style="margin-left:15px;" @click="searchTableData"> 查询</Button>
       </Col>
     </Row>
-    <Table ref="table" style="margin-top:20px;" height="800" :columns="columnsData" :data="tableData"></Table>
+    <Table ref="table" style="margin-top:20px;" height="400"  :columns="columnsData1" :data="tableData1"></Table>
+    <Table ref="table" style="margin-top:20px;" height="400"  :columns="columnsData2" :data="tableData2"></Table>
     <Button type="primary" size="large" @click="exportData()" class="export-data-btn"><Icon type="ios-download-outline"></Icon> 导出数据</Button>
   </div>
 </template>
@@ -22,13 +23,16 @@
     name: "official-weather",
     data () {
       return {
-        columnsData:[{'title':'区号',key:'wep_Now'},{'title':'风力（级）',key:'windpower'},{'title':'时间',key:'recordDate'},
+        columnsData1:[{'title':'区号',key:'wep_Now'},{'title':'风力（级）',key:'windpower'},{'title':'时间',key:'recordDate'},
           {'title':'温度（℃）',key:'tem'},{'title':'气压（/百帕）',key:'pre'},{'title':'相对湿度（%）',key:'rhu'},
-          {'title':'两分钟平均风向（度）',key:'win_D_Avg_2mi'},{'title':'最大风速风向（度）',key:'win_D_S_Max'},{'title':'极大风速风向（度）',key:'win_D_INST_Max'},
+          {'title':'两分钟平均风向（度）',key:'win_D_Avg_2mi'}
+        ],
+        columnsData2:[{'title':'最大风速风向（度）',key:'win_D_S_Max'},{'title':'极大风速风向（度）',key:'win_D_INST_Max'},
           {'title':'极大风速（m/s）',key:'win_S_Inst_Max'},{'title':'两分钟平均风速（m/s）',key:'win_S_Avg_2mi'},{'title':'过去一小时降水量（mm）',key:'pre_1h'},
           {'title':'水平能见度',key:'vis'},{'title':'天气',key:'wep_Now'}
         ],
-        tableData:[],
+        tableData1:[],
+        tableData2:[],
         startDateValue: null,
         endDateValue: null
       }

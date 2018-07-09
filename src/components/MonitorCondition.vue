@@ -75,7 +75,7 @@
           console.log(postData)
         this.$http.post('/compare', postData).then(
           (response) => {
-            console.log(response.length)
+            console.log("++++"+response)
             this.tableData = []
             var key=Object.getOwnPropertyNames(response[0])[2]
             console.log(key)

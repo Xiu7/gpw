@@ -17,7 +17,7 @@
     name: 'HomePage',
     data () {
       return {
-        mapHeight: 600,
+        mapHeight: 1000,
         map: null,
         loading: true,
         loadingText: '',
@@ -58,7 +58,7 @@
     computed: {
     },
     created () {
-      this.mapHeight = document.documentElement.clientHeight - 120
+      this.mapHeight = document.documentElement.clientHeight-120
 
     },
     mounted () {

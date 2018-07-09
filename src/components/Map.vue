@@ -1,7 +1,6 @@
 <template>
   <div class="map">
-    <div style="height:950px;margin:10px;" id="home_page_map"></div>
-    <Button type="text" @click="handleChange">更多>></Button>
+    <div style="height:1000px;" id="home_page_map"></div>
   </div>
 
 </template>
@@ -103,7 +102,7 @@
 
             itemStyle: {
               normal: {
-                color: 'red'
+                color: '#2d8cf0'
               },
             }
           }]
@@ -121,7 +120,7 @@
         if (params.name=='乌海'){
           this.$router.push("/dataInsert");
         }else{
-          this.$router.push("/dataInsert");
+          this.$router.push("/error");
         }
        }
     }
@@ -131,6 +130,6 @@
 
 <style scoped>
 .map{
-  margin:20px
+  margin:10px;
 }
 </style>

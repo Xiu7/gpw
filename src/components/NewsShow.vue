@@ -45,7 +45,7 @@
         time:'2018-05-31',
         img:'../assets/img/scene2.jpg',
         content:'2018年5月28日，中国科学院第十九次院士大会、中国工程院第十四次院士大会在北京人民大会堂隆重开幕。习近平出席会议并发表重要讲话。来源：新华社 　　' +
-        '央视网消息：5月28日上午，中国科学院第十九次院士大会、中国工程院第十四次院士大会在人民大会堂开幕，习近平出席会议并发表重要讲话。“亦余心之所善兮，虽九死其犹未悔”“穷则变，变则通，通则久”“功以才成，业由才广”……讲话中，习近平引经据典谈人才、聊创新、讲信念、话改革，用一句句精辟的论述，点燃科技强国的动力引擎。 谈创新 强调“虽九死其犹未悔”的豪情'
+        '央视网消息：5月28日上午，中国科学院第十九次院士大会、中国工程院第十四次院士大会在人民大会堂开幕，习近平出席会议并发表重要讲话。'
       }
     },
     methods:{
@@ -88,16 +88,7 @@
     margin: 10px;
     border-bottom:solid 4px gainsboro;
   }
-  .layout-logo{
-    float:left;
-    width:48px;height: 48px;margin-top:6px;
-    background: url('../assets/img/logo.png');
-    background-size:48px 48px;
-  }
-  .layout-nav{
-    margin: 0 auto;
-    float: right;
-  }
+
   .layout-content{
     margin-top: 20px;
   }
@@ -109,14 +100,13 @@
   .layout-left ul li {
     list-style: none;
     margin: 10px;
-  }
-  .layout-footer-center{
-    text-align: center;
+    vertical-align:middle
   }
   .layout-right{
     font-size: 15px;
     text-indent:2em;
     text-align: left;
+    margin-left: 20px;
   }
   .layout-right p{
     margin:10px ;

@@ -12,7 +12,7 @@
               <span class="welcome_you" style="width:50px; margin-right: 20px">欢迎您</span>
               <Dropdown transfer trigger="click" @on-click="handleClickUserDropdown">
                 <a href="javascript:void(0)">
-                  <span class="main-user-name" style="color: white">王景华</span>
+                  <span class="main-user-name" style="color: white">{{this.userName}}</span>
                   <Icon type="arrow-down-b" style="color: white"></Icon>
                 </a>
                 <DropdownMenu slot="list">
@@ -78,7 +78,7 @@
           <ul class="footer">
             <li><Icon type="ios-email"></Icon><span>邮箱:mark_yanlei@qq.com</span></li>
             <li><Icon type="ios-telephone"></Icon><span>电话:62330110</span></li>
-            <li><Icon type="location">地址</Icon><span>地址:北京林业大学清华东路35号 北京林业大学</span></li>
+            <li><Icon type="location">地址</Icon><span>地址:北京林业大学清华东路35号</span></li>
           </ul>
        </Footer>
     </Layout>
@@ -94,7 +94,7 @@ export default {
   data(){
     return{
       isLogin:false,
-      username:'',
+      userName:'',
       userInfo: {
         avatar: 'http://img.zcool.cn/community/0196a156c937e46ac7252ce68a8504.png'
       }
@@ -106,6 +106,10 @@ export default {
       //console.log("----"+window.location.href)
       this.isLogin=true
       console.log("****登陆"+this.isLogin);
+      Bus.$on('userSignIn', data => {
+        console.log(data);
+        this.userName = data;
+      });
     }else{
       this.isLogin=false
       console.log("****首页"+this.isLogin);
@@ -151,7 +155,7 @@ export default {
           break;
         case '7':
           console.log(123);
-          this.$router.push("/error");
+          this.$router.push("/test");
           break;
       }
     },
@@ -161,9 +165,6 @@ export default {
     },
     exit:function () {
       this.$router.push('/login');
-    },
-    goHome(msg){
-      this.isLogin=msg
     },
     tologin(msg){
       this.username=msg
@@ -272,7 +273,6 @@ html,body{
   background: #fff;
 }
 .ivu-layout-footer{
-  /*background: mediumseagreen;*/
   background:mediumseagreen;
 }
 .main_common_box{
@@ -305,6 +305,7 @@ html,body{
   white-space: normal;
   font-size: 14px;
   text-align: center;
+  color: whitesmoke;
 }
 .caption {
 color: dimgray;

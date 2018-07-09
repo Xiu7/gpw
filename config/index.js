@@ -12,7 +12,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/lastdata': {
-        target: 'httapip://123.57.12.101:3000',
+        target: 'http://123.57.12.101:3000',
         changeOrigin: true,
         pathRewrite: {
           '^/lastdata': '/lastdata'
@@ -58,7 +58,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: './',
 
     /**
      * Source Maps

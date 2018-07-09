@@ -94,6 +94,7 @@
           this.$router.push('/index-project')
           this.$emit('GoHome',this.isLogin);
           this.$root.$eventHub.$emit('login-success-event')
+          Bus.$emit('userSignIn', this.formInline.user);
           console.log("----"+window.location.href)
 
         } else {
@@ -130,12 +131,12 @@
     position: fixed;
     width: 100%;
     height: 100%;
-    background-image: url("../assets/img/background.jpg");
+    background: url("../assets/img/background.jpg") no-repeat center;;
   }
   .wrapper {
     margin: 100px auto;
     width: 500px;
-    height: 360px;
+    height: 380px;
     padding: 10px;
     box-shadow: 2px 2px 2px 3px #3d4047;
     position: absolute;
@@ -154,6 +155,7 @@
     font-size: 30px;
   }
   .login {
+    position: absolute;
     margin: 0 auto;
     padding: 200px auto;
     width: 70%;
