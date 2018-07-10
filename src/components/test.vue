@@ -15,14 +15,14 @@
         <th>表头3</th>
       </tr>
 
-      <tr class="active">
+      <tr class="table-active">
         <td>哈哈</td>
         <td>呵呵</td>
         <td>嘻嘻</td>
         <td>呵呵</td>
         <td>嘻嘻</td>
       </tr>
-      <tr class="success">
+      <tr class="table-warning">
         <td>哈哈</td>
         <td>呵呵</td>
         <td>嘻嘻</td>
@@ -72,8 +72,8 @@
   import 'swiper/dist/css/swiper.css'
   import {swiper,swiperSlide} from 'vue-awesome-swiper'
   import swiperDefault from'./swiper/swiperDefault'
-  import 'bootstrap/dist/js/bootstrap.js'
-  import 'bootstrap/dist/css/bootstrap.css'
+  // import 'bootstrap/dist/js/bootstrap.js'
+  // import 'bootstrap/dist/css/bootstrap.css'
     export default {
         name: "test",
         data(){

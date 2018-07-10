@@ -4,6 +4,8 @@ import Vue from 'vue'
 
 import iView from 'iview'
 import 'iview/dist/styles/iview.css'
+import 'bootstrap/dist/js/bootstrap.js'
+import 'bootstrap/dist/css/bootstrap.css'
 import App from './App'
 import router from './router'
 import store from './store/store'
