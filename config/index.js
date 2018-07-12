@@ -8,7 +8,7 @@ module.exports = {
 
     // Paths
     assetsSubDirectory: 'static',
-    assetsPublicPath: './',
+    assetsPublicPath: '/',
     proxyTable: {
       '/lastdata': {
         target: 'http://123.57.12.101:3000',

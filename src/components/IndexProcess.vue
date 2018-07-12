@@ -2,7 +2,7 @@
   <div class="main_common_box">
     <Layout :style="{padding: '0 24px 24px'}">
       <Breadcrumb :style="{margin: '12px -22px'}">
-        <BreadcrumbItem>科研新闻</BreadcrumbItem>
+        <BreadcrumbItem>科研进程</BreadcrumbItem>
       </Breadcrumb>
       <Content :style="{padding: '30px', minHeight: '280px', width:'100%' ,background: '#fff'}">
         <Carousel autoplay v-model="value2" :autoplay-speed="8000"  :height="400" loop>
@@ -28,37 +28,29 @@
           </CarouselItem>
         </Carousel>
       </Content>
+
     </Layout>
+    <Breadcrumb :style="{margin: '-10px 8px'}">
+      <BreadcrumbItem>科研新闻</BreadcrumbItem>
+    </Breadcrumb>
     <div class="news">
-      <Row :gutter="32" type="flex">
-        <Col span="16" class="demo-tabs-style1" style="background: #e3e8ee;padding:16px;">
+      <Row :gutter="22" type="flex">
+        <Col span="16" class="demo-tabs-style1" style="background-color: mediumseagreen ;opacity:0.8; padding:16px;">
         <Tabs type="card">
           <TabPane label="今天">
             <ul>
               <li><span>2017-08-13</span>创新决胜未来海外关注习近平院士大会上的讲话</li>
               <li><span>2017-08-13</span>习近平为上合组织发展指明方向大会讲话金句</li>
-              <li><span>2017-08-13</span>国际社会热切期待上合组织青岛峰会</li>
-              <li><span>2017-08-13</span>中俄智库高端论坛在京举行</li>
-              <li><span>2017-08-13</span>中国空间站国际合作正式开启</li>
               <li><span>2017-08-13</span>创新决胜未来海外关注习近平院士大会上的讲话</li>
-              <li><span>2017-08-13</span>习近平为上合组织发展指明方向 大会讲话金句</li>
-              <li><span>2017-08-13</span>国际社会热切期待上合组织青岛峰会</li>
-              <li><span>2017-08-13</span>中俄智库高端论坛在京举行</li>
-              <li><span>2017-08-13</span>中国空间站国际合作正式开启</li>
-            </ul>
-          </TabPane>
-          <TabPane label="一个星期">
-            <ul>
-              <li>创新决胜未来海外关注习近平院士大会上的讲话   <span>2017-08-13</span></li>
-              <li>习近平为上合组织发展指明方向 大会讲话金句<span>2017-08-13</span></li>
-              <li>国际社会热切期待上合组织青岛峰会<span>2017-08-13</span></li>
-              <li>中俄智库高端论坛在京举行<span>2017-08-13</span></li>
-              <li>中国空间站国际合作正式开启<span>2017-08-13</span></li>
-              <li>创新决胜未来海外关注习近平院士大会上的讲话<span>2017-08-13</span></li>
-              <li>习近平为上合组织发展指明方向 大会讲话金句<span>2017-08-13</span></li>
-              <li>国际社会热切期待上合组织青岛峰会<span>2017-08-13</span></li>
-              <li>中俄智库高端论坛在京举行<span>2017-08-13</span></li>
-              <li>中国空间站国际合作正式开启<span>2017-08-13</span></li>
+              <li><span>2017-08-13</span>习近平为上合组织发展指明方向大会讲话金句</li>
+              <li><span>2017-08-13</span>创新决胜未来海外关注习近平院士大会上的讲话</li>
+              <li><span>2017-08-13</span>习近平为上合组织发展指明方向大会讲话金句</li>
+              <li><span>2017-08-13</span>创新决胜未来海外关注习近平院士大会上的讲话</li>
+              <li><span>2017-08-13</span>习近平为上合组织发展指明方向大会讲话金句</li>
+              <li><span>2017-08-13</span>创新决胜未来海外关注习近平院士大会上的讲话</li>
+              <li><span>2017-08-13</span>习近平为上合组织发展指明方向大会讲话金句</li>
+              <li><span>2017-08-13</span>创新决胜未来海外关注习近平院士大会上的讲话</li>
+
             </ul>
           </TabPane>
           <TabPane label="一个月">
@@ -70,16 +62,15 @@
               <li>中国空间站国际合作正式开启<span>2017-08-13</span></li>
               <li>创新决胜未来海外关注习近平院士大会上的讲话<span>2017-08-13</span></li>
               <li>习近平为上合组织发展指明方向 大会讲话金句<span>2017-08-13</span></li>
-              <li>国际社会热切期待上合组织青岛峰会<span>2017-08-13</span></li>
-              <li>中俄智库高端论坛在京举行<span>2017-08-13</span></li>
-              <li>中国空间站国际合作正式开启<span>2017-08-13</span></li>
-
-
+              <li>创新决胜未来海外关注习近平院士大会上的讲话<span>2017-08-13</span></li>
+              <li>习近平为上合组织发展指明方向 大会讲话金句<span>2017-08-13</span></li>
+              <li>创新决胜未来海外关注习近平院士大会上的讲话<span>2017-08-13</span></li>
+              <li>习近平为上合组织发展指明方向 大会讲话金句<span>2017-08-13</span></li>
             </ul>
           </TabPane>
         </Tabs>
         </Col>
-        <Col span="8" class="demo-tabs-style1" style="background: #e3e8ee;padding:16px;">
+        <Col span="8" class="demo-tabs-style1" style=" background-color: mediumseagreen ; opacity:0.8;padding:16px;">
         <Tabs type="card">
           <TabPane label="全部新闻">
             <ul>
@@ -91,6 +82,12 @@
         </Col>
       </Row>
     </div>
+    <Breadcrumb :style="{margin: '12px 12px'}">
+      <BreadcrumbItem>科研进度</BreadcrumbItem>
+    </Breadcrumb>
+    <div class="progress">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">75%</div>
+    </div>
   </div>
 </template>
 
@@ -99,7 +96,7 @@
     name: 'IndexProcess',
     data () {
       return {
-        value2:0,
+
         news:['创新决胜未来海外关注习近平院士大会上的讲话',
           '习近平为上合组织发展指明方向大会讲话金句',
           '国际社会热切期待上合组织青岛峰会',
@@ -108,8 +105,10 @@
           '创新决胜未来海外关注习近平院士大会上的讲话',
           '习近平为上合组织发展指明方向大会讲话金句',
           '国际社会热切期待上合组织青岛峰会',
+          '创新决胜未来海外关注习近平院士大会上的讲话',
+          '习近平为上合组织发展指明方向大会讲话金句',
           '国际社会热切期待上合组织青岛峰会',
-          '国际社会热切期待上合组织青岛峰会'
+
 
         ]
       }
@@ -197,8 +196,10 @@
 
   .news{
     padding: 20px;
-    margin: 20px;
-    background: rgb(227, 232, 238);
+    margin: 5px 5px 14px 14px;
+    /*background: rgb(227, 232, 238);*/
+    /*border: gray 1px solid;*/
+    /*border-radius: 2px;*/
   }
   .news ul {
     width: 100%;
@@ -237,5 +238,8 @@
 
 
 </style>
+
+
+
 
 

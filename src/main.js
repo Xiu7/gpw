@@ -1,7 +1,6 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
-
 import iView from 'iview'
 import 'iview/dist/styles/iview.css'
 import 'bootstrap/dist/js/bootstrap.js'
@@ -13,6 +12,8 @@ import echarts from 'echarts'
 import http from './common/http.js'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
+import { Button,Swipe , SwipeItem , Lazyload} from 'vant'
+Vue.use(Button).use(Swipe).use(SwipeItem).use(Lazyload)
 
 Vue.config.productionTip = false
 Vue.prototype.$echarts=echarts

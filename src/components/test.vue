@@ -5,6 +5,13 @@
     <p>实现中华民族伟大复兴的中国梦，关键在党，关键在人，<strong>“为政之要，莫先于用人。”</strong>四百苏打饼覅苏菲是水电费告诉粉丝的弗格森</p>
     <p class="text-left">慕课网</p>
     <p class="text-center">慕课网</p>
+    <div class="swiper-area">
+      <van-swipe :autoplay="3000">
+        <van-swipe-item v-for="(banner,index) in bannerPicArray" :key="index">
+          <img v-lazy="banner.imageUrl" width="100%"/>
+        </van-swipe-item>
+      </van-swipe>
+    </div>
     <h1>表格</h1>
     <table class="table table-striped table-bordered table-hover">
       <tr>
@@ -30,7 +37,7 @@
         <td>嘻嘻</td>
       </tr>
     </table>
-
+    <van-button type="primary">主要按钮</van-button>
     <div class="type-bar">
       <div v-for="(cate,index) in category" :key="index"  >
         <img :src="cate.image" width="100%">
@@ -82,7 +89,12 @@
             recommendGoods: [],
             swiperOption:{
               slidesPerView:4
-            }
+            },
+            bannerPicArray:[
+              {imageUrl:'http://7xjyw1.com1.z0.glb.clouddn.com/simleVueDemoPic001.jpg'},
+              {imageUrl:'http://7xjyw1.com1.z0.glb.clouddn.com/simleVueDemoPic002.jpg'},
+              {imageUrl:'http://7xjyw1.com1.z0.glb.clouddn.com/simleVueDemoPic003.jpg'},
+            ]
           }
        },
       components:{
@@ -108,6 +120,11 @@
 </script>
 
 <style scoped>
+  .swiper-area{
+    clear:both;
+    max-height: 600px;
+    overflow: hidden;
+  }
 .type-bar{
   background-color: #fff;
   margin: .3rem .3rem .3rem .3rem;

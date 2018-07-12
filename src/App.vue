@@ -66,7 +66,7 @@
                 </MenuItem>
                 <MenuItem name="7">
                   <Icon type="ios-paper"></Icon>
-                  错误页面
+                  联系我们
                 </MenuItem>
             </Menu>
             </Sider>
@@ -155,7 +155,7 @@ export default {
           break;
         case '7':
           console.log(123);
-          this.$router.push("/test");
+          this.$router.push("/messageboard");
           break;
       }
     },

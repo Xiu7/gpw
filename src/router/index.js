@@ -14,7 +14,7 @@ import EditableTable from '@/components/Table/EditableTable'
 import Error from '@/components/error-page/404'
 import Map from '@/components/Map'
 import DataInsert from '@/components/DataInsert'
-import Test from '@/components/test'
+import Messageboard from '@/components/MessageBoard'
 Vue.use(Router)
 
 export default new Router({
@@ -25,9 +25,9 @@ export default new Router({
       component: Login
     },
     {
-      path: '/test',
-      name: 'Test',
-      component: Test
+      path: '/messageboard',
+      name: 'Messageboard',
+      component: Messageboard
     },
     {
 
