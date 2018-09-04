@@ -88,14 +88,14 @@
 
     methods: {
       handleSubmit() {
-        if (this.formInline.user == '123456' && this.formInline.password == '1234567') {
+        if (this.formInline.user == 'yanlei' && this.formInline.password == '123456') {
           this.$Message.success('提交成功!');
           Bus.$emit('showNavigation', false);
           this.$router.push('/index-project')
-          this.$emit('GoHome',this.isLogin);
-          this.$root.$eventHub.$emit('login-success-event')
+          //this.$emit('GoHome',this.isLogin);
+          //this.$root.$eventHub.$emit('login-success-event')
           Bus.$emit('userSignIn', this.formInline.user);
-          console.log("----"+window.location.href)
+          //console.log("----"+window.location.href)
 
         } else {
           this.$Message.error('请输入用户名密码!');
@@ -131,7 +131,8 @@
     position: fixed;
     width: 100%;
     height: 100%;
-    background: url("../assets/img/background.jpg") no-repeat center;;
+    background: url("../assets/img/background.png") no-repeat center;
+    background-size: cover;
   }
   .wrapper {
     margin: 100px auto;

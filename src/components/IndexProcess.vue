@@ -35,7 +35,7 @@
     </Breadcrumb>
     <div class="news">
       <Row :gutter="22" type="flex">
-        <Col span="16" class="demo-tabs-style1" style="background-color: mediumseagreen ;opacity:0.8; padding:16px;">
+        <Col span="16" class="demo-tabs-style1" style="border: 2px solid ;border-color: mediumseagreen; border-radius: 5px ;opacity:0.8; padding:16px;">
         <Tabs type="card">
           <TabPane label="今天">
             <ul>
@@ -70,7 +70,7 @@
           </TabPane>
         </Tabs>
         </Col>
-        <Col span="8" class="demo-tabs-style1" style=" background-color: mediumseagreen ; opacity:0.8;padding:16px;">
+        <Col span="8" class="demo-tabs-style1" style=" border: 2px solid ;border-color: mediumseagreen; border-radius: 5px ; opacity:0.8;padding:16px;">
         <Tabs type="card">
           <TabPane label="全部新闻">
             <ul>
@@ -88,6 +88,7 @@
     <div class="progress">
       <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">75%</div>
     </div>
+    <BackTop></BackTop>
   </div>
 </template>
 
@@ -96,7 +97,7 @@
     name: 'IndexProcess',
     data () {
       return {
-
+       value2:0,
         news:['创新决胜未来海外关注习近平院士大会上的讲话',
           '习近平为上合组织发展指明方向大会讲话金句',
           '国际社会热切期待上合组织青岛峰会',

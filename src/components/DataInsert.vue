@@ -10,8 +10,8 @@
           <Form :style="{padding: '0px 40px' }":model="formLeft" label-position="right" :label-width="200"  >
             元素1：<Input v-model="formLeft.input1" style="width: 60px"></Input>元素2：<Input v-model="formLeft.input2" style="width: 60px"></Input>
             元素3：<Input v-model="formLeft.input3" style="width: 60px"></Input>
-            元素1：<Input v-model="formLeft.input1" style="width: 60px"></Input>元素2：<Input v-model="formLeft.input2" style="width: 60px"></Input>
-            元素3：<Input v-model="formLeft.input3" style="width: 60px"></Input>
+            元素4：<Input v-model="formLeft.input1" style="width: 60px"></Input>元素5：<Input v-model="formLeft.input2" style="width: 60px"></Input>
+            元素6：<Input v-model="formLeft.input3" style="width: 60px"></Input>姓名：<Input v-model="formLeft.input3" style="width: 60px"></Input>
             录入时间：<DatePicker type="date" v-model="Time" placeholder="Select date"
                              style="width: 150px" @on-change="Time=$event"></DatePicker>
           </Form>

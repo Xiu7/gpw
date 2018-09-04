@@ -25,6 +25,9 @@
       </Col>
     </Row>
     <Table ref="table" style="margin-top:20px;" height="800" :columns="columnsData" :data="tableData"></Table>
+    <div class="page">
+      <Page :total="dataCount" :page-size="pageSize" show-total class="paging" @on-change="changepage"></Page>
+    </div>
     <Button type="primary" size="large" @click="exportData()" class="export-data-btn"><Icon type="ios-download-outline"></Icon> 导出数据</Button>
   </div>
 </template>
@@ -54,7 +57,14 @@
         ],
         columnsData:[{'title':'监测点ID',key:'Xid'},{'title':'检测项目值',key:'value'},
           {'title':'时间',key:'Xdate'}],
+        //表格中的数据
         tableData:[],
+        //一次存储接受的所有数据
+        tableDate1:[],
+        // 初始化信息总条数
+        dataCount:0,
+        // 每页显示多少条
+        pageSize:300,
         startDateValue: null,
         endDateValue: null
       }
@@ -75,10 +85,10 @@
           console.log(postData)
         this.$http.post('/compare', postData).then(
           (response) => {
-            console.log("++++"+response)
+            // console.log("++++"+response)
             this.tableData = []
             var key=Object.getOwnPropertyNames(response[0])[2]
-            console.log(key)
+            this.dataCount = response.length;
             for(let i=0;i<response.length;i++){
                let data={Xid:null,Xdate:null,value:null}
                data.Xid= response[i].Xid
@@ -86,9 +96,21 @@
                data.value= response[i][key]
 
               this.tableData.push(data)
+              this.tableData1=this.tableData
             }
-            console.log(this.tableData)
+            // console.log(this.tableData.length)
+            if(this.tableData.length < this.pageSize){
+              this.tableData = this.tableData1;
+            }else{
+              this.tableData = this.tableData1.slice(0,this.pageSize);
+            }
+            // console.log(this.tableData)
           })
+      },
+      changepage(index){
+        var _start = ( index - 1 ) * this.pageSize;
+        var _end = index * this.pageSize;
+        this.tableData = this.tableData1.slice(_start,_end);
       }
     }
   }
@@ -102,4 +124,8 @@
   background-color: #2db7f5;
   color: #fff;
 }
+  .page{
+    margin: 20px;
+    float: right;
+  }
 </style>

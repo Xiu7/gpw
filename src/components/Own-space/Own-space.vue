@@ -192,7 +192,7 @@
         });
       },
       init () {
-        this.userForm.name = 'sxd';
+        this.userForm.name = '闫磊';
         this.userForm.cellphone = '18410102004';
         this.initPhone = '18410102004';
         this.userForm.company = '北京林业大学';

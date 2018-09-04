@@ -4,11 +4,11 @@
       <Breadcrumb :style="{margin: '12px -22px'}">
         <BreadcrumbItem>科研简介</BreadcrumbItem>
       </Breadcrumb>
-      <Content :style="{padding: '30px', minHeight: '280px', width:'100%' ,background: '#fff'}">
+      <Content :style="{padding: '30px', minHeight: '430px', width:'100%' ,background: '#fff'}">
         <Carousel autoplay v-model="value2" :autoplay-speed="8000"  :height="400" loop>
           <CarouselItem>
             <div class="demo-carousel">
-              <img src="../assets/img/lunbo1.png" alt="">
+              <img src="../assets/img/lunbo5.png" alt="">
             </div>
           </CarouselItem>
           <CarouselItem>
@@ -23,7 +23,7 @@
           </CarouselItem>
           <CarouselItem>
             <div class="demo-carousel">
-              <img src="../assets/img/lunbo5.png" alt="">
+              <img src="../assets/img/lunbo1.png" alt="">
             </div>
           </CarouselItem>
         </Carousel>
@@ -50,8 +50,8 @@
         <h1>联系我们</h1>
       </div>
       <ul class="contact-icon">
-        <li><span></span><span>邮件:</span><span>123@dayeyunalading.com</span></li>
-        <li><span></span><span>电话:</span><span>010-62330121</span></li>
+        <li><span></span><span>邮件:</span><span>mark_yanlei@qq.com</span></li>
+        <li><span></span><span>电话:</span><span>010-62336913</span></li>
         <li><span></span><span>公司地址:</span><span>北京市海淀区清华东路35号</span></li>
       </ul>
     </div>

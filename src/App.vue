@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Layout v-if="!isLogin">
-        <Header>
+        <Header id="header">
           <div class="header_left">
             <div class="monitor_logo"></div>
             <div class="project_title">西北干旱荒漠区煤炭基地生态安全监测平台</div>
@@ -17,11 +17,13 @@
                 </a>
                 <DropdownMenu slot="list">
                   <DropdownItem name="ownSpace">个人中心</DropdownItem>
+                  <DropdownItem name="changeback" divided>更换主题</DropdownItem>
                   <DropdownItem name="loginout" divided>退出登录</DropdownItem>
                 </DropdownMenu>
               </Dropdown>
               <div  class="head_img">
-                <Avatar :src="userInfo.avatar" style="width:48px;height: 48px; border-radius: 50%"></Avatar>
+                <!--<Avatar :src="userInfo.avatar" style="width:48px;height: 48px; border-radius: 50%"></Avatar>-->
+                <img src='./assets/img/touxiang.png' style="width:48px;height: 48px; border-radius: 50%"/>
               </div>
               <div class="setting_right" @click.stop="uploadHeadImg" >
                 <div class="caption" style="font-size: 10px">更改头像</div>
@@ -65,7 +67,7 @@
                   设备管理
                 </MenuItem>
                 <MenuItem name="7">
-                  <Icon type="ios-paper"></Icon>
+                  <Icon type="email-unread"></Icon>
                   联系我们
                 </MenuItem>
             </Menu>
@@ -74,10 +76,10 @@
               <router-view></router-view>
             </Content>
         </Layout>
-        <Footer>
+        <Footer id="foot">
           <ul class="footer">
             <li><Icon type="ios-email"></Icon><span>邮箱:mark_yanlei@qq.com</span></li>
-            <li><Icon type="ios-telephone"></Icon><span>电话:62330110</span></li>
+            <li><Icon type="ios-telephone"></Icon><span>电话:62336913</span></li>
             <li><Icon type="location">地址</Icon><span>地址:北京林业大学清华东路35号</span></li>
           </ul>
        </Footer>
@@ -96,7 +98,8 @@ export default {
       isLogin:false,
       userName:'',
       userInfo: {
-        avatar: 'http://img.zcool.cn/community/0196a156c937e46ac7252ce68a8504.png'
+        // avatar: 'http://img.zcool.cn/community/0196a156c937e46ac7252ce68a8504.png'
+         avatar: './assets/img/picture1.jpg'
       }
     }
   },
@@ -106,16 +109,18 @@ export default {
       //console.log("----"+window.location.href)
       this.isLogin=true
       console.log("****登陆"+this.isLogin);
+      //接受登陆界面的用户名
       Bus.$on('userSignIn', data => {
-        console.log(data);
+        //console.log(data);
         this.userName = data;
       });
+      //没有登陆页面直接进入主页
     }else{
       this.isLogin=false
-      console.log("****首页"+this.isLogin);
+     // console.log("****首页"+this.isLogin);
     };
     Bus.$on('showNavigation', data => {
-      console.log(data);
+      //console.log(data);
       this.isLogin = data;
     });
   },
@@ -176,6 +181,9 @@ export default {
         // 退出登录
         this.isLogin = true;
         this.$router.push('/login');
+      }else if(name==='changeback'){
+        document.getElementById('header').style.backgroundColor='#2b85e4'
+         document.getElementById('foot').style.backgroundColor='#2b85e4'
       }
     },
     uploadHeadImg: function () {
@@ -210,6 +218,8 @@ html,body{
   padding: 0 50px;
   height: 64px;
   line-height: 64px;
+}
+.header{
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
